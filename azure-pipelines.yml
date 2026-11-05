@@ -34,6 +34,13 @@ stages:
 
     - script: npm run build
       displayName: Build React Application
+      env:
+        VITE_API_BASE_URL_LOGIN: 'http://192.168.3.2:8183/api/'
+        VITE_API_BASE_URL_MODULES: 'http://192.168.3.2:8185/api'
+        VITE_API_BASE_URL_ONBOARDING: 'http://192.168.3.2:8187/api'
+        VITE_API_BASE_URL: 'http://192.168.3.2:8189/api'
+        VITE_API_BASE_URL_MENU: 'http://192.168.3.2:8190/api'
+        VITE_CLIENT_ID: 'AI'
 
     - task: PublishPipelineArtifact@1
       displayName: Publish React dist
@@ -84,8 +91,6 @@ stages:
                 $source = "$(Pipeline.Workspace)\ui-drop"
                 $destination = "C:\inetpub\wwwroot\RadiantHRAI-Dev\UI"
 
-                $timeout = 60
-
                 # Validate build
                 if (!(Test-Path "$source\index.html")) {
                     throw "React index.html not found!"
@@ -95,76 +100,38 @@ stages:
                     throw "web.config not found!"
                 }
 
-                # Stop website only if running
-                $siteState = (Get-Website -Name $siteName).State
-
-                if ($siteState -eq "Started") {
-                    Write-Host "Stopping website..."
-                    Stop-WebSite -Name $siteName
+                # Validate destination
+                if (!(Test-Path $destination)) {
+                    New-Item -ItemType Directory -Path $destination -Force | Out-Null
                 }
 
-                # Stop pool only if running
-                $poolState = (Get-WebAppPoolState -Name $appPool).Value
+                # Deploy without stopping IIS
+                Write-Host "Copying React files to IIS..."
 
-                if ($poolState -ne "Stopped") {
-                    Write-Host "Stopping application pool..."
-                    Stop-WebAppPool -Name $appPool
-                }
-
-                # Wait until pool stops
-                $elapsed = 0
-
-                do {
-                    Start-Sleep -Seconds 2
-                    $elapsed += 2
-                    $poolState = (Get-WebAppPoolState -Name $appPool).Value
-                    Write-Host "Pool state: $poolState"
-
-                } while ($poolState -ne "Stopped" -and $elapsed -lt $timeout)
-
-                if ($poolState -ne "Stopped") {
-                    throw "Application pool did not stop."
-                }
-
-                # Deploy
-                Write-Host "Copying React files..."
-
-                robocopy $source $destination /MIR
+                & robocopy $source $destination /MIR /R:3 /W:5
                 $copyResult = $LASTEXITCODE
 
-                if ($copyResult -gt 7) {
-                    throw "Robocopy failed: $copyResult"
+                if ($copyResult -ge 8) {
+                    throw "Robocopy failed with exit code: $copyResult"
                 }
 
                 Write-Host "React files copied successfully."
 
-                # Start pool
+                # Check application pool
                 $poolState = (Get-WebAppPoolState -Name $appPool).Value
+                Write-Host "Application Pool State: $poolState"
 
-                if ($poolState -ne "Started") {
+                if ($poolState -eq "Stopped") {
                     Write-Host "Starting application pool..."
                     Start-WebAppPool -Name $appPool
                 }
 
-                # Wait until pool starts
-                $elapsed = 0
-
-                do {
-                    Start-Sleep -Seconds 2
-                    $elapsed += 2
-                    $poolState = (Get-WebAppPoolState -Name $appPool).Value
-                    Write-Host "Pool state: $poolState"
-
-                } while ($poolState -ne "Started" -and $elapsed -lt $timeout)
-
-                if ($poolState -ne "Started") {
-                    throw "Application pool failed to start."
-                }
-
-                # Start website
+                # Check website
                 $siteState = (Get-Website -Name $siteName).State
+                Write-Host "Website State: $siteState"
 
                 if ($siteState -ne "Started") {
+                    Write-Host "Starting IIS website..."
                     Start-WebSite -Name $siteName
                 }
 
