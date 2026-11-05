@@ -83,42 +83,69 @@ stages:
                 $source = "$(Pipeline.Workspace)\ui-drop"
                 $destination = "C:\inetpub\wwwroot\RadiantHRAI-Dev\UI"
 
-                Write-Host "Checking deployment files..."
-
                 if (!(Test-Path "$source\index.html")) {
                     throw "React build index.html not found!"
                 }
 
                 if (!(Test-Path "$source\web.config")) {
-                    throw "web.config not found in build output!"
+                    throw "web.config not found!"
                 }
 
-                try {
-                    Write-Host "Stopping IIS website..."
-                    Stop-WebSite -Name $siteName
+                Write-Host "Stopping IIS website..."
+                Stop-WebSite -Name $siteName -ErrorAction SilentlyContinue
 
-                    Write-Host "Stopping application pool..."
-                    Stop-WebAppPool -Name $appPool
+                Write-Host "Stopping application pool..."
+                Stop-WebAppPool -Name $appPool -ErrorAction SilentlyContinue
 
-                    Write-Host "Deploying React files..."
+                # Wait until application pool is stopped
+                $timeout = 60
+                $elapsed = 0
 
-                    robocopy $source $destination /MIR
+                do {
+                    Start-Sleep -Seconds 2
+                    $elapsed += 2
 
-                    $copyResult = $LASTEXITCODE
+                    $state = (Get-WebAppPoolState -Name $appPool).Value
+                    Write-Host "Application pool state: $state"
 
-                    if ($copyResult -gt 7) {
-                        throw "Robocopy failed with exit code $copyResult"
-                    }
+                } while ($state -ne "Stopped" -and $elapsed -lt $timeout)
 
-                    Write-Host "React files copied successfully."
+                if ($state -ne "Stopped") {
+                    throw "Application pool did not stop within 60 seconds."
                 }
-                finally {
-                    Write-Host "Starting application pool..."
-                    Start-WebAppPool -Name $appPool
 
-                    Write-Host "Starting IIS website..."
-                    Start-WebSite -Name $siteName
+                Write-Host "Deploying React files..."
+
+                robocopy $source $destination /MIR
+                $copyResult = $LASTEXITCODE
+
+                if ($copyResult -gt 7) {
+                    throw "Robocopy failed with exit code $copyResult"
                 }
+
+                Write-Host "React files copied successfully."
+
+                # Start application pool and wait
+                Write-Host "Starting application pool..."
+                Start-WebAppPool -Name $appPool -ErrorAction Stop
+
+                $elapsed = 0
+
+                do {
+                    Start-Sleep -Seconds 2
+                    $elapsed += 2
+
+                    $state = (Get-WebAppPoolState -Name $appPool).Value
+                    Write-Host "Application pool state: $state"
+
+                } while ($state -ne "Started" -and $elapsed -lt $timeout)
+
+                if ($state -ne "Started") {
+                    throw "Application pool did not start within 60 seconds."
+                }
+
+                Write-Host "Starting IIS website..."
+                Start-WebSite -Name $siteName
 
                 Write-Host "UI deployment completed successfully."
                 exit 0
