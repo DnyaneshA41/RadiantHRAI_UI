@@ -17,7 +17,9 @@ stages:
     displayName: Build and Publish UI
 
     pool:
-      vmImage: ubuntu-latest
+      name: Default
+      demands:
+        - Agent.Name -equals RadiantHRAI-Dev-IIS-Agent
 
     steps:
     - checkout: self
@@ -53,7 +55,6 @@ stages:
   - deployment: DeployUI
     displayName: Deploy UI to IIS Server
 
-    # Approval can be configured on this environment
     environment: RadiantHRAI-Dev-UI
 
     pool:
