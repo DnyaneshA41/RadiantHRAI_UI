@@ -7,6 +7,7 @@ const axiosClient = axios.create({
     },
     timeout: 30000,
 });
+console.log("LOGIN API BASE URL:", axiosClient.defaults.baseURL);
 
 axiosClient.interceptors.request.use(
     (config) => {
