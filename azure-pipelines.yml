@@ -1,0 +1,123 @@
+
+trigger:
+  branches:
+    include:
+      - main
+
+stages:
+
+# ==========================================
+# STAGE 1: BUILD REACT APPLICATION
+# ==========================================
+- stage: Build
+  displayName: Build React UI
+
+  jobs:
+  - job: BuildUI
+    displayName: Build and Publish UI
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - checkout: self
+
+    - task: NodeTool@0
+      displayName: Install Node.js 22
+      inputs:
+        versionSpec: '22.x'
+
+    - script: npm ci
+      displayName: Install Dependencies
+
+    - script: npm run build
+      displayName: Build React Application
+
+    - task: PublishPipelineArtifact@1
+      displayName: Publish React dist
+      inputs:
+        targetPath: '$(Build.SourcesDirectory)/dist'
+        artifact: 'ui-drop'
+        publishLocation: 'pipeline'
+
+
+# ==========================================
+# STAGE 2: DEPLOY TO IIS
+# ==========================================
+- stage: Deploy
+  displayName: Deploy React UI to IIS
+  dependsOn: Build
+  condition: succeeded()
+
+  jobs:
+  - deployment: DeployUI
+    displayName: Deploy UI to IIS Server
+
+    # Approval can be configured on this environment
+    environment: RadiantHRAI-Dev-UI
+
+    pool:
+      name: Default
+      demands:
+        - Agent.Name -equals RadiantHRAI-Dev-IIS-Agent
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+
+          - download: current
+            artifact: ui-drop
+
+          - task: PowerShell@2
+            displayName: Deploy React UI to IIS
+            inputs:
+              targetType: inline
+              script: |
+                Import-Module WebAdministration
+
+                $siteName = "RadiantHRAI-Dev-UI"
+                $appPool = "RadiantHRAI-Dev-UI"
+
+                $source = "$(Pipeline.Workspace)\ui-drop"
+                $destination = "C:\inetpub\wwwroot\RadiantHRAI-Dev\UI"
+
+                Write-Host "Checking deployment files..."
+
+                if (!(Test-Path "$source\index.html")) {
+                    throw "React build index.html not found!"
+                }
+
+                if (!(Test-Path "$source\web.config")) {
+                    throw "web.config not found in build output!"
+                }
+
+                try {
+                    Write-Host "Stopping IIS website..."
+                    Stop-WebSite -Name $siteName
+
+                    Write-Host "Stopping application pool..."
+                    Stop-WebAppPool -Name $appPool
+
+                    Write-Host "Deploying React files..."
+
+                    robocopy $source $destination /MIR
+
+                    $copyResult = $LASTEXITCODE
+
+                    if ($copyResult -gt 7) {
+                        throw "Robocopy failed with exit code $copyResult"
+                    }
+
+                    Write-Host "React files copied successfully."
+                }
+                finally {
+                    Write-Host "Starting application pool..."
+                    Start-WebAppPool -Name $appPool
+
+                    Write-Host "Starting IIS website..."
+                    Start-WebSite -Name $siteName
+                }
+
+                Write-Host "UI deployment completed successfully."
+                exit 0
