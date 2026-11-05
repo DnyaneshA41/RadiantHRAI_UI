@@ -76,6 +76,7 @@ stages:
               targetType: inline
               script: |
                 Import-Module WebAdministration
+                $ErrorActionPreference = "Stop"
 
                 $siteName = "RadiantHRAI-Dev-UI"
                 $appPool = "RadiantHRAI-Dev-UI"
@@ -83,69 +84,89 @@ stages:
                 $source = "$(Pipeline.Workspace)\ui-drop"
                 $destination = "C:\inetpub\wwwroot\RadiantHRAI-Dev\UI"
 
+                $timeout = 60
+
+                # Validate build
                 if (!(Test-Path "$source\index.html")) {
-                    throw "React build index.html not found!"
+                    throw "React index.html not found!"
                 }
 
                 if (!(Test-Path "$source\web.config")) {
                     throw "web.config not found!"
                 }
 
-                Write-Host "Stopping IIS website..."
-                Stop-WebSite -Name $siteName -ErrorAction SilentlyContinue
+                # Stop website only if running
+                $siteState = (Get-Website -Name $siteName).State
 
-                Write-Host "Stopping application pool..."
-                Stop-WebAppPool -Name $appPool -ErrorAction SilentlyContinue
+                if ($siteState -eq "Started") {
+                    Write-Host "Stopping website..."
+                    Stop-WebSite -Name $siteName
+                }
 
-                # Wait until application pool is stopped
-                $timeout = 60
+                # Stop pool only if running
+                $poolState = (Get-WebAppPoolState -Name $appPool).Value
+
+                if ($poolState -ne "Stopped") {
+                    Write-Host "Stopping application pool..."
+                    Stop-WebAppPool -Name $appPool
+                }
+
+                # Wait until pool stops
                 $elapsed = 0
 
                 do {
                     Start-Sleep -Seconds 2
                     $elapsed += 2
+                    $poolState = (Get-WebAppPoolState -Name $appPool).Value
+                    Write-Host "Pool state: $poolState"
 
-                    $state = (Get-WebAppPoolState -Name $appPool).Value
-                    Write-Host "Application pool state: $state"
+                } while ($poolState -ne "Stopped" -and $elapsed -lt $timeout)
 
-                } while ($state -ne "Stopped" -and $elapsed -lt $timeout)
-
-                if ($state -ne "Stopped") {
-                    throw "Application pool did not stop within 60 seconds."
+                if ($poolState -ne "Stopped") {
+                    throw "Application pool did not stop."
                 }
 
-                Write-Host "Deploying React files..."
+                # Deploy
+                Write-Host "Copying React files..."
 
                 robocopy $source $destination /MIR
                 $copyResult = $LASTEXITCODE
 
                 if ($copyResult -gt 7) {
-                    throw "Robocopy failed with exit code $copyResult"
+                    throw "Robocopy failed: $copyResult"
                 }
 
                 Write-Host "React files copied successfully."
 
-                # Start application pool and wait
-                Write-Host "Starting application pool..."
-                Start-WebAppPool -Name $appPool -ErrorAction Stop
+                # Start pool
+                $poolState = (Get-WebAppPoolState -Name $appPool).Value
 
+                if ($poolState -ne "Started") {
+                    Write-Host "Starting application pool..."
+                    Start-WebAppPool -Name $appPool
+                }
+
+                # Wait until pool starts
                 $elapsed = 0
 
                 do {
                     Start-Sleep -Seconds 2
                     $elapsed += 2
+                    $poolState = (Get-WebAppPoolState -Name $appPool).Value
+                    Write-Host "Pool state: $poolState"
 
-                    $state = (Get-WebAppPoolState -Name $appPool).Value
-                    Write-Host "Application pool state: $state"
+                } while ($poolState -ne "Started" -and $elapsed -lt $timeout)
 
-                } while ($state -ne "Started" -and $elapsed -lt $timeout)
-
-                if ($state -ne "Started") {
-                    throw "Application pool did not start within 60 seconds."
+                if ($poolState -ne "Started") {
+                    throw "Application pool failed to start."
                 }
 
-                Write-Host "Starting IIS website..."
-                Start-WebSite -Name $siteName
+                # Start website
+                $siteState = (Get-Website -Name $siteName).State
 
-                Write-Host "UI deployment completed successfully."
+                if ($siteState -ne "Started") {
+                    Start-WebSite -Name $siteName
+                }
+
+                Write-Host "Deployment completed successfully."
                 exit 0
