@@ -1,0 +1,583 @@
+/* =========================================================
+    SETTINGS PANEL
+ ========================================================= */
+
+.settings-panel {
+  position: fixed;
+
+  width: 350px;
+  max-width: calc(100vw - 30px);
+
+  /*
+        Desktop:
+        Keep panel near the left sidebar.
+    */
+  left: calc(var(--rh-sidebar-width) + 20px);
+  bottom: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #edf0f3;
+  border-radius: 12px;
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.14),
+    0 5px 15px rgba(15, 23, 42, 0.06);
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  z-index: 9999;
+
+  animation: settingsPanelIn 0.18s ease-out;
+
+  /*
+        Prevent the panel from becoming taller than the screen.
+    */
+  max-height: calc(100vh - 44px);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   PANEL ANIMATION
+ ========================================================= */
+
+@keyframes settingsPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   HEADER
+ ========================================================= */
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.settings-header h3 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #202124;
+
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   CLOSE BUTTON
+ ========================================================= */
+
+.settings-close-btn {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  color: #8a939d;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.settings-close-btn:hover {
+  background: #f5f6f8;
+  color: #343a40;
+}
+
+/* =========================================================
+   WORKSPACE ITEM
+ ========================================================= */
+
+.settings-workspace {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 4px 0;
+
+  border: none;
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   ICON
+ ========================================================= */
+
+.settings-item-icon {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f5f7fa;
+
+  border-radius: 7px;
+
+  color: #4b5563;
+}
+
+/* =========================================================
+   ITEM CONTENT
+ ========================================================= */
+
+.settings-item-content {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.settings-item-title {
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #252a30;
+
+  line-height: 1.35;
+
+  word-break: break-word;
+}
+
+.settings-item-subtitle {
+  font-size: 11px;
+
+  color: #8a939d;
+
+  line-height: 1.35;
+}
+
+/* =========================================================
+   ARROW
+ ========================================================= */
+
+.settings-item-arrow {
+  flex: 0 0 auto;
+
+  color: #9aa2ab;
+
+  transition: transform 0.15s ease;
+}
+
+.settings-workspace:hover .settings-item-arrow {
+  transform: translateX(2px);
+}
+
+/* =========================================================
+   DIVIDER
+ ========================================================= */
+
+.settings-divider {
+  width: 100%;
+  height: 1px;
+
+  background: #eef0f2;
+
+  margin: 18px 0;
+}
+
+/* =========================================================
+   SECTION
+ ========================================================= */
+
+.settings-section {
+  width: 100%;
+}
+
+.settings-section-title {
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #292d32;
+
+  margin-bottom: 3px;
+}
+
+.settings-section-subtitle {
+  font-size: 11px;
+
+  color: #8b939c;
+
+  margin-bottom: 12px;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   THEME OPTIONS
+ ========================================================= */
+
+.settings-theme-options {
+  width: 100%;
+
+  display: flex;
+  gap: 10px;
+}
+
+/* =========================================================
+   THEME OPTION
+ ========================================================= */
+
+.settings-theme-option {
+  position: relative;
+
+  width: 50%;
+  min-width: 0;
+  min-height: 70px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #e7eaee;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #505861;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.settings-theme-option:hover {
+  background: #fafbfc;
+  border-color: #d9dee4;
+}
+
+/* =========================================================
+   ACTIVE THEME
+ ========================================================= */
+
+.settings-theme-option.active {
+  background: #f5f7fa;
+  border-color: #dce2e8;
+}
+
+.settings-theme-option.active .settings-theme-icon {
+  color: #343a40;
+}
+
+/* =========================================================
+   THEME ICON
+ ========================================================= */
+
+.settings-theme-icon {
+  display: flex;
+  align-items: center;
+
+  color: #707982;
+}
+
+/* =========================================================
+   THEME TEXT
+ ========================================================= */
+
+.settings-theme-option span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   CHECK
+ ========================================================= */
+
+.settings-theme-check {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  color: #5d6670;
+}
+
+/* =========================================================
+   LANGUAGE
+ ========================================================= */
+
+.settings-language-section {
+  margin-bottom: 2px;
+}
+
+.settings-language-option {
+  width: 100%;
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: none;
+  background: transparent;
+
+  padding: 6px 2px;
+
+  color: #505861;
+
+  cursor: pointer;
+
+  border-radius: 6px;
+
+  box-sizing: border-box;
+
+  transition: background 0.15s ease;
+}
+
+.settings-language-option:hover {
+  background: #f8f9fa;
+}
+
+.settings-language-left {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.settings-language-left span {
+  font-size: 12px;
+  font-weight: 500;
+
+  color: #3f464d;
+}
+
+.settings-language-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  color: #737c85;
+}
+
+.settings-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1999;
+}
+
+.settings-panel {
+  position: fixed;
+  z-index: 2000;
+}
+/* =========================================================
+   TABLET
+   768px AND BELOW
+ ========================================================= */
+
+@media (max-width: 767px) {
+  .settings-panel {
+    left: 10%;
+    right: auto;
+
+    bottom: 16px;
+
+    width: min(350px, calc(100vw - 32px));
+
+    max-width: calc(100vw - 32px);
+
+    animation: settingsPanelMobileIn 0.18s ease-out;
+  }
+}
+
+/* =========================================================
+   MOBILE ANIMATION
+ ========================================================= */
+
+@keyframes settingsPanelMobileIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* =========================================================
+   MOBILE
+   576px AND BELOW
+ ========================================================= */
+
+@media (max-width: 575px) {
+  .settings-panel {
+    left: 12px;
+    right: 12px;
+
+    bottom: 12px;
+
+    width: auto;
+    max-width: none;
+
+    padding: 18px;
+
+    max-height: calc(100vh - 24px);
+
+    /*
+            Since left/right are defined,
+            do NOT use translateX here.
+        */
+    transform: none;
+
+    animation: settingsPanelSmallMobileIn 0.18s ease-out;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE ANIMATION
+ ========================================================= */
+
+@keyframes settingsPanelSmallMobileIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   400px AND BELOW
+ ========================================================= */
+
+@media (max-width: 399px) {
+  .settings-panel {
+    left: 8px;
+    right: 8px;
+
+    bottom: 8px;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    max-height: calc(100vh - 16px);
+  }
+
+  .settings-theme-options {
+    gap: 8px;
+  }
+
+  .settings-theme-option {
+    min-height: 64px;
+
+    padding: 9px 10px;
+  }
+
+  .settings-item-icon {
+    width: 32px;
+    height: 32px;
+
+    flex-basis: 32px;
+  }
+
+  .settings-item-title {
+    font-size: 12px;
+  }
+
+  .settings-item-subtitle {
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   340px AND BELOW
+ ========================================================= */
+
+@media (max-width: 339px) {
+  .settings-panel {
+    left: 6px;
+    right: 6px;
+
+    bottom: 6px;
+
+    width: auto;
+
+    padding: 14px;
+  }
+
+  .settings-theme-options {
+    flex-direction: column;
+  }
+
+  .settings-theme-option {
+    width: 100%;
+    min-height: 56px;
+
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .settings-theme-check {
+    top: 50%;
+    right: 10px;
+
+    transform: translateY(-50%);
+  }
+}

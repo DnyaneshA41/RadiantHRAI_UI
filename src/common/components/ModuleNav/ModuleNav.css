@@ -1,0 +1,220 @@
+/* =========================================================
+   MODULE NAVIGATION
+========================================================= */
+
+.module-nav {
+    position: fixed;
+
+    top: var(--rh-header-height);
+
+    left: var(--rh-sidebar-width);
+    right: 0;
+
+    width: auto;
+    height: var(--rh-module-nav-height);
+
+    background: #ffffff;
+
+    border-bottom: 1px solid var(--rh-border);
+
+    z-index: 950;
+
+    box-sizing: border-box;
+
+    transition:
+        left var(--rh-transition),
+        width var(--rh-transition);
+}
+
+
+/* =========================================================
+   SCROLL CONTAINER
+========================================================= */
+
+.module-nav-scroll {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: stretch;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    box-sizing: border-box;
+}
+
+
+.module-nav-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+.module-nav-link {
+    position: relative;
+
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 22px;
+
+    color: #737b8c;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    white-space: nowrap;
+    text-decoration: none;
+
+    flex-shrink: 0;
+
+    transition:
+        color var(--rh-transition),
+        background var(--rh-transition);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.module-nav-link:hover {
+    color: var(--rh-primary);
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.module-nav-link.active {
+    color: #1f2937;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   ACTIVE TRIANGLE
+========================================================= */
+
+.module-nav-link.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+
+    border-bottom: 9px solid #2f80ed;
+}
+
+
+/* =========================================================
+   TABLET
+   768px - 991px
+
+   Sidebar = 126px
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .module-nav {
+        top: var(--rh-header-height);
+
+        left: 126px;
+        right: 0;
+
+        width: auto;
+
+        height: var(--rh-module-nav-height);
+    }
+
+
+    .module-nav-link {
+        padding: 0 18px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 767px
+
+   Sidebar becomes overlay.
+   Module Navigation takes full width.
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .module-nav {
+        top: var(--rh-header-height);
+
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        height: var(--rh-module-nav-height);
+    }
+
+
+    /* -----------------------------------------
+       SCROLL CONTAINER
+    ----------------------------------------- */
+
+    .module-nav-scroll {
+        width: 100%;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    /* -----------------------------------------
+       LINK
+    ----------------------------------------- */
+
+    .module-nav-link {
+        padding: 0 16px;
+
+        font-size: 10px;
+    }
+
+
+    /* -----------------------------------------
+       ACTIVE TRIANGLE
+    ----------------------------------------- */
+
+    .module-nav-link.active::after {
+        border-left-width: 9px;
+        border-right-width: 9px;
+        border-bottom-width: 9px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   <= 480px
+========================

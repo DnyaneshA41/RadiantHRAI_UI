@@ -1,0 +1,58 @@
+/* =========================================
+   GENERIC FILTER
+========================================= */
+
+.filter-select-new {
+  width: 100%;
+  min-width: 160px;
+  height: 30px;
+
+  padding: 0 36px 0 12px;
+
+  border: 1px solid #ececec;
+  border-radius: 3px;
+
+  background-color: #ffffff;
+  color: #374151;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+
+  outline: none;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+
+/* Hover */
+.filter-select-new:hover {
+  border-color: #ebebeb;
+}
+
+/* Focus */
+.filter-select-new:focus {
+  border-color: #8c8d8e;
+  box-shadow: 0 0 0 2px rgba(2, 62, 125, 0.08);
+}
+
+/* Disabled */
+.filter-select-new:disabled {
+  background-color: #f5f6f8;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Dropdown options */
+.filter-select-new option {
+  background: #ffffff;
+  color: #374151;
+  font-size: 13px;
+}

@@ -1,0 +1,30 @@
+.hrms-section-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #234a75;
+  cursor: pointer;
+  padding: 4px;
+}
+
+
+.hrms-form-section-collapse {
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 0;
+
+  transition:
+    height 300ms ease-in-out,
+    padding-top 300ms ease-in-out,
+    padding-bottom 300ms ease-in-out;
+}
+
+.hrms-form-section-collapse.is-open {
+  height: auto;
+  overflow: visible;
+}

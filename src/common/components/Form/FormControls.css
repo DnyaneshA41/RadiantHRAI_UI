@@ -1,0 +1,2312 @@
+/* =========================================================
+   HRMS COMMON FORM CONTROLS
+   Modern White Enterprise Theme
+   ========================================================= */
+
+/* =========================================================
+   ROOT / FORM CONTAINER
+   ========================================================= */
+
+.hrms-form-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+
+  background: #ffffff;
+  color: #24344d;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  box-sizing: border-box;
+}
+
+.hrms-form-container *,
+.hrms-form-container *::before,
+.hrms-form-container *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.hrms-form-group {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.hrms-form-label {
+  display: block;
+
+  margin: 0 0 6px;
+
+  color: #344054;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  white-space: normal;
+}
+
+/* =========================================================
+   REQUIRED STAR
+   ========================================================= */
+
+.hrms-required {
+  margin-left: 3px;
+
+  color: #d92d20;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   INPUT / COMMON FORM CONTROL
+   ========================================================= */
+
+.hrms-form-control {
+  width: 100%;
+  height: 35px;
+
+  margin: 0;
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d5e2f0;
+  border-radius: 5px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #344765;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: normal;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+/* =========================================================
+   INPUT PLACEHOLDER
+   ========================================================= */
+
+.hrms-form-control::placeholder {
+  color: #8da1ba;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+
+  opacity: 1;
+}
+
+/* =========================================================
+   INPUT HOVER
+   ========================================================= */
+
+.hrms-form-control:hover:not(:disabled) {
+  border-color: #bfd2e7;
+}
+
+/* =========================================================
+   INPUT FOCUS
+   ========================================================= */
+
+.hrms-form-control:focus {
+  border-color: #2f80ed;
+
+  background: #ffffff;
+
+  outline: none;
+
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.08);
+}
+
+/* =========================================================
+   INPUT DISABLED
+   ========================================================= */
+
+.hrms-form-control:disabled {
+  background: #f8fafc;
+  color: #98a2b3;
+
+  border-color: #e4ebf3;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   INPUT READONLY
+   ========================================================= */
+
+.hrms-form-control[readonly] {
+  background: #fbfcfe;
+
+  cursor: default;
+}
+
+/* =========================================================
+   =========================================================
+   CUSTOM SELECT
+   =========================================================
+   ========================================================= */
+
+/* =========================================================
+   SELECT WRAPPER
+   ========================================================= */
+.hrms-custom-select-wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  z-index: auto !important;
+}
+
+.hrms-custom-select-wrapper.is-open {
+  z-index: auto !important;
+}
+
+/* =========================================================
+   SELECT BUTTON
+   ========================================================= */
+
+.hrms-custom-select {
+  position: relative;
+
+  width: 100%;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 10px 0 12px;
+
+  border: 1px solid #d5e2f0;
+  border-radius: 5px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #344765;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+/* =========================================================
+   SELECT HOVER
+   ========================================================= */
+
+.hrms-custom-select:hover:not(:disabled) {
+  border-color: #bfd2e7;
+  background: #ffffff;
+}
+
+/* =========================================================
+   SELECT FOCUS
+   ========================================================= */
+
+.hrms-custom-select:focus {
+  border-color: #2f80ed;
+
+  outline: none;
+
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.08);
+}
+
+/* =========================================================
+   SELECT OPEN STATE
+   ========================================================= */
+
+.hrms-custom-select-wrapper.is-open .hrms-custom-select {
+  border-color: #2f80ed;
+
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.08);
+}
+
+/* =========================================================
+   SELECT VALUE
+   ========================================================= */
+
+.hrms-select-value {
+  display: block;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: #344054;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   SELECT PLACEHOLDER
+   ========================================================= */
+
+.hrms-select-placeholder {
+  display: block;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: #98a2b3;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   SELECT ARROW
+   ========================================================= */
+
+.hrms-select-arrow {
+  width: 24px;
+  height: 24px;
+
+  flex: 0 0 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #667085;
+
+  transition:
+    transform 0.18s ease,
+    color 0.18s ease;
+}
+
+/* =========================================================
+   SELECT ARROW SVG
+   ========================================================= */
+
+.hrms-select-arrow svg {
+  width: 16px;
+  height: 16px;
+
+  display: block;
+}
+
+/* =========================================================
+   SELECT ARROW OPEN
+   ========================================================= */
+
+.hrms-custom-select-wrapper.is-open .hrms-select-arrow {
+  color: #5b8def;
+
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   CUSTOM DROPDOWN
+   ========================================================= */
+
+
+.hrms-select-dropdown {
+  position: fixed !important;
+  width: auto;
+  z-index: 899 !important;
+
+  padding: 5px;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+  max-height: 240px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  animation: hrmsDropdownOpen 0.14s ease-out;
+}
+
+/* Only when FormOffcanvas is open */
+body.hrms-offcanvas-open .hrms-select-dropdown {
+  z-index: 1203 !important;
+}
+
+/* DROPDOWN ANIMATION */
+
+@keyframes hrmsDropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* DROPDOWN SCROLLBAR */
+
+.hrms-select-dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+
+.hrms-select-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hrms-select-dropdown::-webkit-scrollbar-thumb {
+  background: #d0d5dd;
+  border-radius: 10px;
+}
+
+.hrms-select-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #98a2b3;
+}
+
+.hrms-select-dropdown {
+  scrollbar-width: thin;
+  scrollbar-color: #d0d5dd transparent;
+}
+
+/* =========================================================
+   DROPDOWN OPTION
+   ========================================================= */
+
+.hrms-select-option {
+  min-height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 9px;
+
+  border-radius: 4px;
+
+  color: #344054;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease;
+}
+
+/* =========================================================
+   OPTION HOVER
+   ========================================================= */
+
+.hrms-select-option:hover {
+  background: #f4f7ff;
+
+  color: #416fc4;
+}
+
+/* =========================================================
+   SELECTED OPTION
+   ========================================================= */
+
+.hrms-select-option.is-selected {
+  background: #eef4ff;
+
+  color: #416fc4;
+
+  font-weight: 500;
+}
+
+/* =========================================================
+   SELECTED OPTION HOVER
+   ========================================================= */
+
+.hrms-select-option.is-selected:hover {
+  background: #e7efff;
+
+  color: #416fc4;
+}
+.hrms-select-option.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  background: transparent;
+}
+/* =========================================================
+   OPTION CHECK
+   ========================================================= */
+
+.hrms-option-check {
+  width: 18px;
+  height: 18px;
+
+  flex: 0 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #5b8def;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   SELECT DISABLED
+   ========================================================= */
+
+.hrms-custom-select:disabled,
+.hrms-custom-select.is-disabled {
+  background: #f8f9fb;
+
+  color: #98a2b3;
+
+  border-color: #e4e7ec;
+
+  cursor: not-allowed;
+
+  opacity: 0.85;
+}
+
+/* =========================================================
+   SELECT ERROR
+   ========================================================= */
+
+.hrms-custom-select-wrapper.has-error .hrms-custom-select {
+  border-color: #f04438;
+
+  background: #fffafa;
+}
+
+.hrms-custom-select-wrapper.has-error .hrms-custom-select:focus {
+  border-color: #f04438;
+
+  box-shadow: 0 0 0 2px rgba(240, 68, 56, 0.08);
+}
+
+/* =========================================================
+   LEGACY / NATIVE SELECT SUPPORT
+   =========================================================
+   Kept so existing native FormSelect components continue
+   to work if they are still used elsewhere.
+   ========================================================= */
+
+.hrms-select-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  z-index: 100;
+}
+
+.hrms-form-select {
+  width: 100%;
+  height: 35px;
+
+  padding: 0 38px 0 12px;
+
+  border: 1px solid #d5e2f0;
+  border-radius: 5px;
+
+  outline: none;
+
+  background-color: #ffffff;
+  color: #344765;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.hrms-form-select:hover:not(:disabled) {
+  border-color: #bfd2e7;
+
+  background-color: #ffffff;
+}
+
+.hrms-form-select:focus {
+  border-color: #2f80ed;
+
+  background-color: #ffffff;
+
+  outline: none;
+
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.08);
+}
+
+.hrms-select-wrapper::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: 13px;
+
+  width: 7px;
+  height: 7px;
+
+  border-right: 1.5px solid #667085;
+  border-bottom: 1.5px solid #667085;
+
+  transform: translateY(-65%) rotate(45deg);
+
+  pointer-events: none;
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.hrms-select-wrapper:focus-within::after {
+  border-color: #5b8def;
+
+  transform: translateY(-30%) rotate(225deg);
+}
+
+.hrms-select-wrapper:hover::after {
+  border-color: #344765;
+}
+
+.hrms-form-select option {
+  background: #ffffff;
+  color: #344054;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  padding: 8px 12px;
+}
+
+.hrms-form-select option[value=""] {
+  color: #98a2b3;
+}
+
+.hrms-form-select:disabled {
+  background-color: #f8f9fb;
+
+  color: #98a2b3;
+
+  border-color: #e4e7ec;
+
+  cursor: not-allowed;
+
+  opacity: 0.85;
+}
+
+/* =========================================================
+   DATE CONTROL
+   ========================================================= */
+
+.hrms-date-control {
+  position: relative;
+
+  width: 100%;
+
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+.hrms-date-control::-webkit-calendar-picker-indicator {
+  width: 15px;
+  height: 15px;
+
+  margin-right: 2px;
+
+  cursor: pointer;
+
+  opacity: 0.55;
+
+  transition: opacity 0.15s ease;
+}
+
+.hrms-date-control:hover::-webkit-calendar-picker-indicator {
+  opacity: 0.8;
+}
+
+/* =========================================================
+   NUMBER INPUT
+   ========================================================= */
+
+.hrms-form-control[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.hrms-form-control[type="number"]::-webkit-inner-spin-button,
+.hrms-form-control[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+
+  -webkit-appearance: none;
+}
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+.hrms-form-control textarea,
+textarea.hrms-form-control {
+  height: auto;
+
+  min-height: 90px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  line-height: 1.5;
+
+  resize: vertical;
+}
+
+/* =========================================================
+   INPUT WITH LEFT ICON
+   ========================================================= */
+
+.hrms-input-with-icon {
+  position: relative;
+
+  width: 100%;
+}
+
+.hrms-input-with-icon .hrms-form-control {
+  padding-left: 39px;
+}
+
+.hrms-input-icon {
+  position: absolute;
+
+  top: 50%;
+  left: 12px;
+
+  width: 16px;
+  height: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #8ba0ba;
+
+  font-size: 15px;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+/* =========================================================
+   INPUT WITH RIGHT ICON
+   ========================================================= */
+
+.hrms-input-with-right-icon {
+  position: relative;
+
+  width: 100%;
+}
+
+.hrms-input-with-right-icon .hrms-form-control {
+  padding-right: 38px;
+}
+
+.hrms-input-right-icon {
+  position: absolute;
+
+  top: 50%;
+  right: 12px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #8ba0ba;
+
+  font-size: 15px;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+/* =========================================================
+   INPUT + ACTION BUTTON
+   ========================================================= */
+
+.hrms-input-action {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 8px;
+}
+
+.hrms-input-action .hrms-form-control {
+  flex: 1 1 auto;
+
+  min-width: 0;
+}
+
+/* =========================================================
+   ICON BUTTON
+   ========================================================= */
+
+.hrms-icon-button {
+  width: 36px;
+  height: 35px;
+
+  flex: 0 0 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #2f80ed;
+  border-radius: 5px;
+
+  background: #2f80ed;
+  color: #ffffff;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.hrms-icon-button:hover:not(:disabled) {
+  background: #176fd1;
+
+  border-color: #176fd1;
+}
+
+.hrms-icon-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.hrms-icon-button:focus-visible {
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.12);
+}
+
+.hrms-icon-button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   CHECKBOX WRAPPER
+   ========================================================= */
+
+.hrms-checkbox-wrapper {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  /* min-height: 39px; */
+
+  color: #53657d;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+/* =========================================================
+   HIDE NATIVE CHECKBOX
+   ========================================================= */
+
+.hrms-checkbox-wrapper input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  margin: 0;
+  padding: 0;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   CUSTOM CHECKBOX
+   ========================================================= */
+
+.hrms-checkbox-box {
+  position: relative;
+
+  width: 18px;
+  height: 18px;
+
+  flex: 0 0 18px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #cddceb;
+  border-radius: 4px;
+
+  background: #ffffff;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* =========================================================
+   CHECKBOX HOVER
+   ========================================================= */
+
+.hrms-checkbox-wrapper:hover .hrms-checkbox-box {
+  border-color: #aebfd3;
+}
+
+/* =========================================================
+   CHECKED
+   ========================================================= */
+
+.hrms-checkbox-wrapper input:checked + .hrms-checkbox-box {
+  background: #2f80ed;
+
+  border-color: #2f80ed;
+}
+
+/* =========================================================
+   CHECK MARK
+   ========================================================= */
+
+.hrms-checkbox-wrapper input:checked + .hrms-checkbox-box::after {
+  content: "";
+
+  position: absolute;
+
+  left: 6px;
+  top: 3px;
+
+  width: 5px;
+  height: 9px;
+
+  border-right: 1.5px solid #ffffff;
+  border-bottom: 1.5px solid #ffffff;
+
+  transform: rotate(45deg);
+}
+
+/* =========================================================
+   CHECKBOX FOCUS
+   ========================================================= */
+
+.hrms-checkbox-wrapper input:focus-visible + .hrms-checkbox-box {
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.12);
+}
+
+/* =========================================================
+   CHECKBOX LABEL
+   ========================================================= */
+
+.hrms-checkbox-label {
+  color: #53657d;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 1.35;
+
+  user-select: none;
+}
+
+/* =========================================================
+   FORM ROW - TWO COLUMNS
+   ========================================================= */
+
+.hrms-form-row {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: 21px;
+  row-gap: 12px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   FORM ROW - THREE COLUMNS
+   ========================================================= */
+
+.hrms-form-row-3 {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  column-gap: 21px;
+  row-gap: 12px;
+  margin-bottom: 12px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   FORM ROW - FOUR COLUMNS
+   ========================================================= */
+
+.hrms-form-row-4 {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  column-gap: 18px;
+  row-gap: 12px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   FORM FIELD FULL WIDTH
+   ========================================================= */
+
+.hrms-form-full {
+  grid-column: 1 / -1;
+}
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.hrms-form-section {
+  width: 100%;
+
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #e5edf6;
+}
+
+.hrms-form-section:last-child {
+  margin-bottom: 0;
+
+  padding-bottom: 0;
+
+  border-bottom: 0;
+}
+
+/* =========================================================
+   SECTION CARD
+   ========================================================= */
+
+.hrms-form-section-card {
+  position: relative;
+
+  width: 100%;
+
+  margin-bottom: 16px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe9f5;
+  border-radius: 8px;
+
+  overflow: visible;
+
+  box-sizing: border-box;
+}
+
+.hrms-form-section-card:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.hrms-form-section-header {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  min-height: 70px;
+
+  padding: 12px 17px;
+
+  background: #f8fbff;
+
+  box-sizing: border-box;
+
+  border-radius: 8px 8px 0 0;
+}
+
+/* =========================================================
+   SECTION ICON
+   ========================================================= */
+
+.hrms-form-section-icon {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  flex: 0 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background-color: #eef5fc;
+  color: #023e7d;
+}
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.hrms-form-section-heading {
+  min-width: 0;
+}
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.hrms-form-section-title {
+  margin: 0;
+    padding: 0;
+    color: #234a75;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   SECTION DESCRIPTION
+   ========================================================= */
+
+.hrms-form-section-description {
+   margin: 3px 0 0;
+  padding: 0;
+  color: #8a96a3;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+
+/* Icon + heading group */
+
+.hrms-section-heading-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.employee-information {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+  color: #40536b;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.employee-information svg {
+  display: block;
+  flex-shrink: 0;
+  color: #064783;
+}
+/* =========================================================
+   SECTION BODY
+   ========================================================= */
+
+.hrms-form-section-body {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.hrms-form-section-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  padding-top: 15px;
+  padding-bottom: 5px;
+
+  border-top: 1px solid #f0f2f5;
+}
+
+/* =========================================================
+   SECTION TITLE OUTSIDE CARD
+   ========================================================= */
+
+.hrms-form-section-title:not(.hrms-form-section-card .hrms-form-section-title) {
+  margin: 0 0 15px;
+
+  color: #1f3048;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   HELPER TEXT
+   ========================================================= */
+
+.hrms-form-help {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #98a8bb;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   ERROR STATE
+   ========================================================= */
+
+.hrms-form-control-error {
+  border-color: #f04438 !important;
+
+}
+
+.hrms-form-control-error:focus {
+  border-color: #f04438 !important;
+
+  /* box-shadow: 0 0 0 2px rgba(240, 68, 56, 0.08) !important; */
+}
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.hrms-form-error {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #d92d20;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   SUCCESS STATE
+   ========================================================= */
+
+.hrms-form-control-success {
+  border-color: #22a06b !important;
+}
+
+.hrms-form-control-success:focus {
+  border-color: #22a06b !important;
+
+  box-shadow: 0 0 0 2px rgba(34, 160, 107, 0.08) !important;
+}
+
+/* =========================================================
+   FILE INPUT
+   ========================================================= */
+
+.hrms-form-file {
+  width: 100%;
+  height: 35px;
+
+  padding: 8px 10px;
+
+  border: 1px solid #d5e2f0;
+  border-radius: 5px;
+
+  background: #ffffff;
+  color: #667991;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+}
+
+.hrms-form-file:hover {
+  border-color: #bfd2e7;
+}
+
+.hrms-form-file:focus {
+  outline: none;
+
+  border-color: #2f80ed;
+
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.08);
+}
+
+/* =========================================================
+   FILE UPLOAD CONTAINER
+   ========================================================= */
+
+.hrms-file-upload-container {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   FILE PREVIEW
+   ========================================================= */
+
+.hrms-file-preview {
+  width: 150px;
+  height: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid #d5e2f0;
+  border-radius: 3px;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   FILE PREVIEW IMAGE
+   ========================================================= */
+
+.hrms-file-preview-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   FILE PREVIEW PLACEHOLDER
+   ========================================================= */
+
+.hrms-file-preview-placeholder {
+  color: #98a8bb;
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   FILE UPLOAD ICON
+   ========================================================= */
+
+.hrms-file-upload-icon {
+  width: 30px;
+  height: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #2f80ed;
+
+  cursor: pointer;
+
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.hrms-file-upload-icon:hover {
+  color: #176fd1;
+}
+
+.hrms-file-upload-icon input {
+  display: none;
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.hrms-form-button {
+  min-width: 90px;
+  height: 38px;
+
+  padding: 0 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* =========================================================
+   BUTTON DISABLED
+   ========================================================= */
+
+.hrms-form-button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.hrms-form-button-primary {
+  /* min-width: 120px; */
+
+  color: #ffffff;
+
+  background: #1677ed;
+
+  border-color: #1677ed;
+
+  box-shadow: 0 2px 5px rgba(22, 119, 237, 0.18);
+}
+
+.hrms-form-button-primary:hover:not(:disabled) {
+  background: #0868d8;
+
+  border-color: #0868d8;
+
+  box-shadow: 0 3px 7px rgba(22, 119, 237, 0.22);
+}
+
+.hrms-form-button-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.hrms-form-button-secondary {
+  color: #667991;
+
+  background: #ffffff;
+
+  border-color: #cbd9e8;
+}
+
+.hrms-form-button-secondary:hover:not(:disabled) {
+  color: #455b75;
+
+  background: #f8fbff;
+
+  border-color: #b8cadf;
+}
+
+.hrms-form-button-secondary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* =========================================================
+   LIGHT / TERTIARY BUTTON
+   ========================================================= */
+
+.hrms-form-button-light {
+  color: #667991;
+
+  background: #f8fbff;
+
+  border-color: #e3ebf4;
+}
+
+.hrms-form-button-light:hover:not(:disabled) {
+  background: #f1f6fc;
+
+  border-color: #d6e1ed;
+}
+
+/* =========================================================
+   BUTTON ICON
+   ========================================================= */
+
+.hrms-form-button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   FORM FOOTER
+   ========================================================= */
+
+.hrms-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 13px;
+
+  width: 100%;
+
+  margin-top: 31px;
+  padding-top: 17px;
+
+  border-top: 1px solid #e5edf6;
+}
+
+/* =========================================================
+   FOOTER INSIDE SECTION CARD
+   ========================================================= */
+
+.hrms-form-section-body .hrms-form-footer {
+  margin-top: 31px;
+}
+
+/* =========================================================
+   FOOTER LEFT / RIGHT
+   ========================================================= */
+
+.hrms-form-footer-left {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-right: auto;
+}
+
+.hrms-form-footer-right {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  margin-left: auto;
+}
+
+/* =========================================================
+   FORM ACTION ROW
+   ========================================================= */
+
+.hrms-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 13px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.hrms-form-control:focus-visible {
+  outline: none;
+}
+
+.hrms-form-button:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 4px rgba(47, 128, 237, 0.25);
+}
+
+/* =========================================================
+   AUTOFILL
+   ========================================================= */
+
+.hrms-form-control:-webkit-autofill,
+.hrms-form-control:-webkit-autofill:hover,
+.hrms-form-control:-webkit-autofill:focus {
+  -webkit-text-fill-color: #344765;
+
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* =========================================================
+   INPUT SELECTION
+   ========================================================= */
+
+.hrms-form-control::selection {
+  background: #dcecff;
+
+  color: #24344d;
+}
+
+/* =========================================================
+   UTILITY - HORIZONTAL DIVIDER
+   ========================================================= */
+
+.hrms-form-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 18px 0;
+
+  background: #e5edf6;
+}
+
+/* =========================================================
+   UTILITY - FULL WIDTH
+   ========================================================= */
+
+.hrms-field-full {
+  grid-column: 1 / -1;
+}
+
+/* =========================================================
+   UTILITY - NO MARGIN
+   ========================================================= */
+
+.hrms-no-margin {
+  margin-bottom: 0 !important;
+}
+
+/* =========================================================
+   UTILITY - HIDDEN
+   ========================================================= */
+
+.hrms-form-hidden {
+  display: none !important;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .hrms-form-row-4 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .hrms-form-row-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hrms-form-row-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hrms-form-section-header {
+    min-height: 66px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .hrms-form-row,
+  .hrms-form-row-3,
+  .hrms-form-row-4 {
+    grid-template-columns: 1fr;
+
+    column-gap: 0;
+
+    row-gap: 12px;
+  }
+
+  .hrms-form-section-card {
+    border-radius: 7px;
+
+    margin-bottom: 14px;
+  }
+
+  .hrms-form-section-header {
+    gap: 11px;
+
+    min-height: 64px;
+
+    padding: 11px 13px;
+
+    border-radius: 7px 7px 0 0;
+  }
+
+  .hrms-form-section-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    flex-basis: 32px;
+  }
+
+  .hrms-form-section-title {
+    font-size: 13px;
+  }
+
+  .hrms-form-section-description {
+    font-size: 11px;
+  }
+  .hrms-section-heading-group {
+    align-items: flex-start;
+    gap: 9px;
+  }
+   .employee-information {
+    font-size: 11px;
+    align-items: flex-start;
+  }
+
+  .hrms-form-section-body {
+    padding: 15px 13px 18px;
+  }
+  .hrms-form-section-footer {
+    justify-content: flex-end;
+  }
+  .hrms-form-control {
+    height: 35px;
+
+    padding-left: 11px;
+    padding-right: 11px;
+
+    font-size: 12px;
+  }
+
+  .hrms-form-control::placeholder {
+    font-size: 12px;
+  }
+
+  .hrms-custom-select {
+    height: 35px;
+
+    font-size: 12px;
+  }
+
+  .hrms-input-with-icon .hrms-form-control {
+    padding-left: 37px;
+  }
+
+  .hrms-input-icon {
+    left: 11px;
+  }
+
+  .hrms-form-footer {
+    margin-top: 24px;
+
+    padding-top: 14px;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+  }
+
+  .hrms-form-button {
+    height: 35px;
+
+    font-size: 12px;
+  }
+
+  .hrms-select-dropdown {
+    max-height: 220px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+  .hrms-form-section-header {
+    padding: 10px 12px;
+  }
+.hrms-section-heading-group {
+    gap: 8px;
+  }
+  .employee-information {
+    font-size: 10px;
+  }
+  .hrms-form-section-body {
+    padding: 14px 12px 16px;
+  }
+
+  .hrms-form-footer {
+    justify-content: stretch;
+  }
+
+  .hrms-form-footer-left,
+  .hrms-form-footer-right,
+  .hrms-form-actions {
+    width: 100%;
+  }
+
+  .hrms-form-footer-right,
+  .hrms-form-actions {
+    justify-content: flex-end;
+  }
+
+  .hrms-form-button {
+    min-width: 82px;
+
+    padding: 0 13px;
+  }
+
+  .hrms-form-button-primary {
+    min-width: 120px;
+  }
+
+  .hrms-checkbox-wrapper {
+    font-size: 12px;
+  }
+
+  .hrms-select-dropdown {
+    max-height: 200px;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .hrms-form-section-title {
+    font-size: 12px;
+  }
+
+  .hrms-form-section-description {
+    font-size: 10px;
+  }
+
+  .hrms-form-footer {
+    flex-direction: column-reverse;
+
+    align-items: stretch;
+  }
+
+  .hrms-form-footer .hrms-form-button,
+  .hrms-form-actions .hrms-form-button {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   Z-INDEX SUPPORT FOR FORM SECTIONS
+   ========================================================= */
+
+/*
+   Allows custom dropdowns inside form sections to appear
+   above neighboring fields.
+*/
+
+/* =========================================================
+   ACTIVE DROPDOWN SECTION
+   ========================================================= */
+
+.hrms-form-section-card {
+  position: relative;
+  overflow: visible;
+}
+
+.hrms-form-section-body {
+  position: relative;
+  overflow: visible;
+}
+
+/* =========================================================
+   IMPORTANT:
+   DO NOT CLIP CUSTOM DROPDOWN
+   ========================================================= */
+
+.hrms-form-section-card,
+.hrms-form-section-body {
+  overflow: visible;
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+  .hrms-form-container {
+    background: #ffffff;
+  }
+
+  .hrms-form-section-card {
+    border: 1px solid #d9d9d9;
+
+    box-shadow: none;
+
+    overflow: hidden;
+  }
+
+  .hrms-form-button,
+  .hrms-icon-button {
+    display: none;
+  }
+
+  .hrms-form-control,
+  .hrms-custom-select {
+    border-color: #cfcfcf;
+
+    box-shadow: none;
+  }
+
+  .hrms-select-dropdown {
+    display: none;
+  }
+}
+
+.hrms-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.hrms-input-wrapper .hrms-form-control {
+  width: 100%;
+  padding-right: 45px;
+}
+
+.hrms-input-right-icon {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  color: #333;
+  pointer-events: none;
+}
+
+.hrms-input-right-icon svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 2;
+}
+
+.hrms-file-input-row {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  height: 35px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dfe4eb;
+  border-radius: 5px;
+}
+
+.hrms-native-file-input {
+  display: none;
+}
+
+.hrms-file-choose {
+  flex: 0 0 auto;
+  padding: 0 18px;
+  color: #354052;
+  background: #f8f9fb;
+  border: 0;
+  border-right: 1px solid #e1e5eb;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hrms-file-choose:hover {
+  background: #eef3fa;
+}
+
+.hrms-file-name {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  padding: 0 14px;
+  overflow: hidden;
+  color: #424b5a;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hrms-file-preview-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 46px;
+  color: #657284;
+  background: #ffffff;
+  border: 0;
+  border-left: 1px solid #e1e5eb;
+  cursor: pointer;
+}
+
+.hrms-file-preview-button:hover:not(:disabled) {
+  color: #416fc4;
+  background: #f5f8fd;
+}
+
+.hrms-file-preview-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.hrms-file-saved {
+  margin-top: 10px;
+  color: #399779;
+  font-size: 12px;
+}
+
+.hrms-file-saved strong {
+  color: #16815e;
+  font-weight: 600;
+}
+
+/* Preview popup */
+
+.hrms-file-preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(25, 36, 52, 0.45);
+}
+
+.hrms-file-preview-modal {
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e1e7ef;
+  border-radius: 3px;
+  box-shadow: 0 15px 45px rgba(20, 40, 70, 0.18);
+}
+
+.hrms-file-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  color: #253247;
+  font-size: 13px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.hrms-file-preview-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  color: #64748b;
+  background: #ffffff;
+  border: 0;
+  cursor: pointer;
+}
+
+.hrms-file-preview-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  max-height: 65vh;
+  padding: 24px;
+  background: #f7f9fc;
+}
+
+.hrms-file-preview-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 55vh;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .hrms-file-choose {
+    padding: 0 10px;
+  }
+
+  .hrms-file-preview-button {
+    flex-basis: 40px;
+  }
+
+  .hrms-file-name {
+    padding: 0 8px;
+  }
+}
+
+/* =========================================
+   SEARCHABLE SELECT DROPDOWN
+========================================= */
+
+.hrms-select-search-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.hrms-select-search-icon {
+  flex-shrink: 0;
+  color: #667085;
+}
+
+.hrms-select-search-input {
+  width: 100%;
+  min-width: 0;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  color: #344765;
+  font-size: 12px;
+  border-radius: 0;
+}
+
+.hrms-select-search-input::placeholder {
+  color: #98a2b3;
+}
+
+.hrms-select-search-input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.hrms-select-search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #667085;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.hrms-select-search-clear:hover {
+  background: #f2f4f7;
+  color: #344054;
+}
+
+.hrms-select-no-results {
+  padding: 14px 12px;
+  color: #667085;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Password input wrapper */
+.hrms-password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Reserve space for the eye icon */
+.hrms-password-input-wrapper .hrms-form-control {
+  padding-right: 45px;
+}
+
+/* Position the eye icon relative to the input */
+.hrms-password-toggle-btn {
+  position: absolute;
+  right: 7px;
+  top: 40px;
+  transform: translateY(-50%);
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #828282;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Input without a label */
+.hrms-password-input-wrapper.no-label .hrms-password-toggle-btn {
+  top: 17.5px;
+}
+
+.hrms-password-toggle-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hrms-password-toggle-btn:hover {
+  color: #5b8def;
+}
+
+.hrms-password-toggle-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

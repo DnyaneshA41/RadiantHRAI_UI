@@ -1,0 +1,602 @@
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.hrms-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: var(--rh-sidebar-width);
+
+    background: var(--rh-sidebar-bg);
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1100;
+
+    overflow: hidden;
+
+    border-right: 1px solid var(--rh-sidebar-border);
+
+    transition:
+        transform var(--rh-transition),
+        width var(--rh-transition);
+}
+
+
+/* =========================================================
+   LOGO AREA
+========================================================= */
+
+.sidebar-logo-area {
+    height: var(--rh-header-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+
+    flex-shrink: 0;
+
+    border-bottom: 1px solid var(--rh-border-light);
+}
+
+.sidebar-logo {
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.sidebar-menu {
+    flex: 1;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 7px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.sidebar-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* =========================================================
+   SIDEBAR LINK
+   COMMON STYLING FOR NAVLINK AND BUTTON
+========================================================= */
+
+.sidebar-link {
+    position: relative;
+
+    width: 100%;
+    min-height: 62px;
+
+    margin-bottom: 3px;
+
+    padding: 7px 4px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    color: var(--rh-sidebar-text);
+
+    text-decoration: none;
+
+    border-radius: var(--rh-radius-sm);
+
+    box-sizing: border-box;
+
+    transition:
+        background var(--rh-transition),
+        color var(--rh-transition);
+}
+
+
+/* =========================================================
+   ADMIN SIDEBAR BUTTON RESET
+   IMPORTANT: ADMIN MODULES ARE BUTTON ELEMENTS
+========================================================= */
+
+.sidebar-menu button.sidebar-link {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 100%;
+    min-height: 62px;
+
+    margin: 0 0 3px;
+    padding: 7px 4px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: normal;
+
+    color: var(--rh-sidebar-text);
+
+    background: transparent;
+    border: none;
+
+    border-radius: var(--rh-radius-sm);
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        background var(--rh-transition),
+        color var(--rh-transition);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.sidebar-link:hover {
+    background: var(--rh-sidebar-hover);
+
+    color: var(--rh-primary);
+
+    text-decoration: none;
+}
+
+.sidebar-menu button.sidebar-link:hover:not(:disabled) {
+    background: var(--rh-sidebar-hover);
+    color: var(--rh-primary);
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.sidebar-link.active {
+    background: var(--rh-sidebar-active);
+
+    color: var(--rh-primary);
+
+    font-weight: 500;
+}
+
+.sidebar-menu button.sidebar-link.active {
+    background: var(--rh-sidebar-active);
+    color: var(--rh-primary);
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   ACTIVE INDICATOR
+========================================================= */
+
+/*
+.sidebar-link.active::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+
+    width: 3px;
+
+    background: var(--rh-primary-light);
+
+    border-radius: 0 3px 3px 0;
+}
+*/
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.sidebar-icon {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: inherit;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.sidebar-label {
+    display: block;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: inherit;
+
+    font-size: 10px;
+    font-weight: 400;
+
+    line-height: 14px;
+
+    white-space: normal;
+}
+
+
+/* =========================================================
+   ADMIN BUTTON LABEL
+========================================================= */
+
+.sidebar-menu button.sidebar-link .sidebar-label {
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+
+    color: inherit;
+    text-align: center;
+}
+
+
+/* =========================================================
+   ADMIN BUTTON LOADING
+========================================================= */
+
+.sidebar-loading {
+    font-size: 10px;
+    line-height: 12px;
+    color: inherit;
+}
+
+
+/* =========================================================
+   ADMIN BUTTON DISABLED
+========================================================= */
+
+.sidebar-menu button.sidebar-link:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   BUTTON FOCUS
+========================================================= */
+
+.sidebar-menu button.sidebar-link:focus {
+    outline: none;
+}
+
+.sidebar-menu button.sidebar-link:focus-visible {
+    outline: 2px solid var(--rh-primary);
+    outline-offset: -2px;
+}
+
+
+/* =========================================================
+   MOBILE TOGGLE BUTTON
+========================================================= */
+
+.sidebar-mobile-toggle {
+    display: none;
+
+    position: fixed;
+
+    top: 14px;
+    left: 14px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--rh-border);
+
+    border-radius: var(--rh-radius);
+
+    background: #ffffff;
+
+    color: var(--rh-primary);
+
+    cursor: pointer;
+
+    z-index: 1200;
+
+    box-shadow: var(--rh-shadow-sm);
+
+    transition:
+        background var(--rh-transition),
+        color var(--rh-transition);
+}
+
+.sidebar-mobile-toggle:hover {
+    background: var(--rh-sidebar-hover);
+
+    color: var(--rh-primary-hover);
+}
+
+
+/* =========================================================
+   MOBILE CLOSE BUTTON
+========================================================= */
+
+.sidebar-mobile-close {
+    display: none;
+
+    position: absolute;
+
+    top: 14px;
+    right: 12px;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    border-radius: var(--rh-radius);
+
+    background: transparent;
+
+    color: var(--rh-text-secondary);
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.sidebar-mobile-close:hover {
+    background: var(--rh-sidebar-hover);
+
+    color: var(--rh-primary);
+}
+
+
+/* =========================================================
+   MOBILE OVERLAY
+========================================================= */
+
+.sidebar-overlay {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.25);
+
+    z-index: 1090;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 7px;
+
+    flex-shrink: 0;
+
+    border-top: 1px solid var(--rh-border);
+}
+
+.sidebar-settings-link {
+    width: 100%;
+    min-height: auto;
+
+    border: none;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .hrms-sidebar {
+        width: 126px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* MOBILE SIDEBAR */
+
+    .hrms-sidebar {
+        width: 240px;
+
+        transform: translateX(-100%);
+
+        box-shadow:
+            4px 0 20px rgba(15, 23, 42, 0.12);
+
+        border-right: 1px solid var(--rh-border);
+    }
+
+    /* OPEN */
+
+    .hrms-sidebar.mobile-sidebar-open {
+        transform: translateX(0);
+    }
+
+    /* HAMBURGER */
+
+    .sidebar-mobile-toggle {
+        display: flex;
+    }
+
+    /* CLOSE */
+
+    .sidebar-mobile-close {
+        display: flex;
+    }
+
+    /* OVERLAY */
+
+    .sidebar-overlay {
+        display: block;
+    }
+
+    /* LOGO */
+
+    .sidebar-logo-area {
+        height: 67px;
+
+        justify-content: flex-start;
+
+        padding-left: 18px;
+        padding-right: 50px;
+    }
+
+    .sidebar-logo {
+        display: none;
+    }
+
+    /* MENU */
+
+    .sidebar-menu {
+        padding: 7px;
+    }
+
+    /* MOBILE MENU ITEM */
+
+    .sidebar-link,
+    .sidebar-menu button.sidebar-link {
+        min-height: 54px;
+
+        flex-direction: row;
+
+        justify-content: flex-start;
+
+        padding: 9px 14px;
+
+        gap: 12px;
+    }
+
+    /* MOBILE ICON */
+
+    .sidebar-icon {
+        width: 19px;
+        min-width: 19px;
+
+        height: 19px;
+    }
+
+    /* MOBILE LABEL */
+
+    .sidebar-label,
+    .sidebar-menu button.sidebar-link .sidebar-label {
+        width: auto;
+
+        text-align: left;
+
+        font-size: 13px;
+
+        line-height: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hrms-sidebar {
+        width: 230px;
+    }
+
+    .sidebar-mobile-toggle {
+        top: 12px;
+        left: 12px;
+
+        width: 36px;
+        height: 36px;
+    }
+
+}

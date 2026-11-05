@@ -1,0 +1,1225 @@
+
+/* =========================================================
+   EMPLOYEE DIRECTORY
+========================================================= */
+
+.datatable-directory {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  position: relative;
+  color: #334155;
+}
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.datatable-card {
+  width: 100%;
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 3px 8px rgba(15, 23, 42, 0.03);
+
+  overflow: visible;
+  position: relative;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.datatable-card-header {
+  min-height: 74px;
+
+  padding: 14px 16px 13px 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  border-bottom: 1px solid #edf1f5;
+}
+
+.datatable-card-header-left {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.employee-title-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+
+  border-radius: 9px;
+
+  background: #edf5ff;
+  color: #2f80ed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.employee-title-content {
+  min-width: 0;
+}
+
+.employee-title-content h2 {
+  margin: 0;
+
+  color: #172b4d;
+
+  font-size: 17px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.employee-title-content p {
+  margin: 3px 0 0;
+
+  color: #718096;
+
+  font-size: 11.5px;
+  line-height: 1.25;
+}
+
+.datatable-card-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  min-width: 0;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.employee-search {
+  width: 235px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #dbe3ec;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #8a99aa;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.employee-search:focus-within {
+  border-color: #9fc8ef;
+
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.08);
+}
+
+.employee-search svg {
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.employee-search input {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  padding: 0 9px;
+
+  color: #334155;
+
+  font-size: 12px;
+}
+
+.employee-search input::placeholder {
+  color: #8290a3;
+}
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+.employee-add-button {
+  height: 31px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 0 11px;
+
+  border: 1px solid #2f80ed;
+  border-radius: 4px;
+
+  background: #ffffff;
+  color: #1673d1;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.employee-add-button:hover {
+  background: #f1f7ff;
+  color: #0566c5;
+}
+
+/* =========================================================
+   CONTROLS ROW
+========================================================= */
+
+.data-table-controls {
+  min-height: 56px;
+
+  display: grid;
+
+  grid-template-columns: auto minmax(0, 1fr) auto;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 9px 13px;
+
+  background: #ffffff;
+
+  /*
+    IMPORTANT:
+    Do not use overflow:hidden here.
+    Native select dropdowns need the surrounding
+    area to remain unrestricted.
+  */
+  overflow: visible;
+
+  position: relative;
+
+  z-index: 30;
+}
+
+/* =========================================================
+   PAGE SIZE
+========================================================= */
+
+.employee-page-size {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #66758a;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+.employee-page-size select {
+  width: 54px;
+  height: 28px;
+
+  border: 1px solid #dce4ed;
+  border-radius: 4px;
+
+  background-color: #ffffff;
+
+  color: #334155;
+
+  font-size: 11.5px;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.employee-page-size select:focus {
+  border-color: #9fc8ef;
+}
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.employee-filters {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 6px;
+
+  /*
+    IMPORTANT:
+    Do NOT use overflow-x:auto here.
+    It can clip/interfere with the filter dropdown
+    area on smaller screens.
+  */
+  overflow: visible;
+
+  position: relative;
+
+  z-index: 40;
+}
+
+.filter-box {
+  min-width: 150px;
+
+  position: relative;
+
+  z-index: 50;
+
+  flex: 0 1 150px;
+}
+
+/* =========================================================
+   FILTER SELECT
+========================================================= */
+
+.filter-box .form-select,
+.filter-box .filter-select-new {
+  width: 100%;
+  min-width: 0;
+
+  height: 29px;
+
+  padding: 0.25rem 1.75rem 0.25rem 0.55rem;
+
+  border: 1px solid #dce4ed !important;
+  border-radius: 4px !important;
+
+  background-color: #ffffff !important;
+
+  color: #6c7a8d !important;
+
+  font-size: 10.5px !important;
+  font-weight: 500 !important;
+
+  box-shadow: none !important;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.filter-box .form-select:hover,
+.filter-box .filter-select-new:hover {
+  border-color: #c7d3e1 !important;
+}
+
+.filter-box .form-select:focus,
+.filter-box .filter-select-new:focus {
+  border-color: #9fc8ef !important;
+
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.07) !important;
+}
+
+/* =========================================================
+   CLEAR FILTER
+========================================================= */
+
+.clear-filter-button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 4px;
+
+  height: 29px;
+
+  padding: 0 4px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #0879ed;
+
+  font-size: 11.5px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+.clear-filter-button:hover {
+  color: #005fc7;
+}
+
+/* =========================================================
+   EXPORT
+========================================================= */
+
+.export-dropdown-wrapper {
+  position: relative;
+
+  z-index: 100;
+}
+
+.data-export-button {
+  height: 35px;
+
+  min-width: 94px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  padding: 0 9px;
+
+  border: 1px solid #aeb9c6;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #657386;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.data-export-button:hover {
+  background: #f8fafc;
+  color: #3f5064;
+}
+
+/* =========================================================
+   EXPORT MENU
+========================================================= */
+
+.export-menu {
+  position: absolute;
+
+  top: calc(100% + 5px);
+  right: 0;
+
+  min-width: 95px;
+
+  padding: 4px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce4ed;
+  border-radius: 5px;
+
+  box-shadow:
+    0 8px 22px rgba(15, 23, 42, 0.12),
+    0 2px 6px rgba(15, 23, 42, 0.06);
+
+  z-index: 1000;
+}
+
+.export-menu button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 9px;
+
+  border: 0;
+  border-radius: 3px;
+
+  background: transparent;
+
+  color: #475569;
+
+  font-size: 11.5px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.export-menu button:hover {
+  background: #f3f7fb;
+  color: #0879ed;
+}
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.data-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  border-top: 1px solid #e3e9f0;
+  border-bottom: 1px solid #e3e9f0;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.data-table-wrapper::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+.data-table-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.data-table {
+  width: 100%;
+
+  min-width: 950px;
+
+  margin: 0;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  table-layout: auto;
+}
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.data-table thead th {
+  height: 29px;
+
+  padding: 7px 10px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #dfe5ec;
+
+  color: #182b49;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.035em;  
+
+  white-space: nowrap;
+
+  vertical-align: middle;
+
+  user-select: none;
+}
+
+.data-table thead th:first-child {
+  padding-left: 18px;
+}
+
+.data-table thead th:last-child {
+  padding-right: 17px;
+}
+
+.table-header-content {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+
+  gap: 8px;
+}
+
+.table-sort-icon {
+  display: inline-flex;
+  align-items: center;
+
+  color: #8795a5;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.data-table tbody td {
+  height: 47px;
+
+  padding: 6px 10px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #edf1f5;
+
+  color: #5f6f82;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+
+  vertical-align: middle;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table tbody tr:hover td {
+  background: #fbfdff;
+}
+
+.data-table tbody td:first-child {
+  padding-left: 18px;
+}
+
+.data-table tbody td:last-child {
+  padding-right: 17px;
+}
+
+/* =========================================================
+   EMPLOYEE ID
+========================================================= */
+
+.employee-id-cell {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.emp-avatar {
+  width: 27px;
+  height: 27px;
+
+  min-width: 27px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 1px solid #e2e8f0;
+
+  background: #f1f5f9;
+}
+
+.employee-id-text {
+  color: #718096;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+/* =========================================================
+   EMPLOYEE NAME
+========================================================= */
+
+.employee-name-cell {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.employee-name {
+  color: #27364a;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.25;
+}
+
+.employee-email {
+  margin-top: 1px;
+
+  color: #8794a4;
+
+  font-size: 10px;
+
+  line-height: 1.2;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.employee-status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  min-height: 18px;
+
+  padding: 2px 7px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+.employee-status-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+.employee-status-active {
+  background: #ecfbf5;
+  color: #11966c;
+
+  border: 1px solid #b9efd9;
+}
+
+.employee-status-active .employee-status-dot {
+  background: #16a77a;
+}
+
+.employee-status-inactive {
+  background: #f1f4f7;
+  color: #627184;
+
+  border: 1px solid #d9e0e7;
+}
+
+.employee-status-inactive .employee-status-dot {
+  background: #7b8795;
+}
+
+.employee-status-leave {
+  background: #fff9e9;
+  color: #c48816;
+
+  border: 1px solid #f4df9e;
+}
+
+.employee-status-leave .employee-status-dot {
+  background: #f1b52b;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions-header {
+  width: 74px;
+
+  text-align: center !important;
+}
+
+.action-cell {
+  width: 74px;
+
+  text-align: center;
+}
+
+.action-trigger {
+  width: 25px;
+  height: 25px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 4px;
+
+  background: #f7f9fb;
+
+  color: #1680ed;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.action-trigger:hover {
+  background: #eaf4ff;
+  color: #006fd6;
+}
+
+/* =========================================================
+   ACTION POPUP
+========================================================= */
+
+.action-popup {
+  position: fixed;
+
+  min-width: 150px;
+
+  padding: 4px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce4ed;
+  border-radius: 5px;
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.13),
+    0 3px 8px rgba(15, 23, 42, 0.07);
+
+  z-index: 99999;
+}
+
+.action-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 9px;
+
+  border: 0;
+  border-radius: 3px;
+
+  background: transparent;
+
+  color: #475569;
+
+  font-size: 11px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.action-item:hover {
+  background: #f3f7fb;
+  color: #0879ed;
+}
+
+.action-item-danger {
+  color: #dc3545;
+}
+
+.action-item-danger:hover {
+  background: #fff2f3;
+  color: #c82333;
+}
+
+/* =========================================================
+   EMPTY / LOADING
+========================================================= */
+
+.data-table-state {
+  height: 170px !important;
+
+  text-align: center;
+
+  color: #8a98a9 !important;
+
+  font-size: 12px !important;
+
+  vertical-align: middle !important;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.datatable-pagination {
+  min-height: 48px;
+
+  padding: 9px 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  background: #ffffff;
+}
+
+.pagination-info {
+  color: #718096;
+
+  font-size: 10.5px;
+
+  white-space: nowrap;
+}
+
+.pagination-info strong {
+  color: #344054;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination-list {
+  display: flex;
+  align-items: center;
+
+  gap: 1px;
+
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.pagination-list li {
+  display: flex;
+}
+
+.pagination-list button {
+  min-width: 28px;
+  height: 26px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  padding: 0 7px;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  background: #ffffff;
+
+  color: #66758a;
+
+  font-size: 10.5px;
+
+  cursor: pointer;
+}
+
+.pagination-list button:hover {
+  background: #f2f7fc;
+  color: #0879ed;
+}
+
+.pagination-list li.active button {
+  background: #0879ed;
+  border-color: #0879ed;
+
+  color: #ffffff;
+}
+
+.pagination-list li.disabled button,
+.pagination-list button:disabled {
+  background: #f1f3f5;
+
+  color: #9aa5b1;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   NOTIFICATION
+========================================================= */
+
+.data-table-notification {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  max-width: 330px;
+
+  padding: 9px 13px;
+
+  background: #172b4d;
+
+  color: #ffffff;
+
+  border-radius: 5px;
+
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.2);
+
+  font-size: 11px;
+
+  z-index: 100000;
+}
+
+/* =========================================================
+   RESPONSIVE - BELOW 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+  .datatable-card-header {
+    gap: 10px;
+  }
+
+  .employee-search {
+    width: 210px;
+  }
+
+  .data-table-controls {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+
+    gap: 8px;
+
+    overflow: visible;
+  }
+
+  /*
+    IMPORTANT:
+    Previously this was overflow-x:auto.
+    That could interfere with the select dropdown.
+  */
+
+  .employee-filters {
+    justify-content: flex-start;
+
+    overflow: visible;
+
+    flex-wrap: wrap;
+
+    padding-bottom: 2px;
+
+    gap: 6px;
+  }
+
+  .filter-box {
+    min-width: 145px;
+
+    flex: 0 1 145px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - BELOW 900px
+========================================================= */
+
+@media (max-width: 900px) {
+  .datatable-card-header {
+    align-items: flex-start;
+  }
+
+  .datatable-card-header-right {
+    flex-wrap: wrap;
+  }
+
+  .data-table-controls {
+    grid-template-columns: 1fr auto;
+
+    grid-template-areas:
+      "page export"
+      "filters filters";
+
+    align-items: center;
+
+    overflow: visible;
+  }
+
+  .employee-page-size {
+    grid-area: page;
+  }
+
+  .employee-filters {
+    grid-area: filters;
+
+    width: 100%;
+
+    justify-content: flex-start;
+
+    overflow: visible;
+
+    flex-wrap: wrap;
+  }
+
+  .filter-box {
+    min-width: 145px;
+
+    flex: 0 1 145px;
+  }
+
+  .export-dropdown-wrapper {
+    grid-area: export;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - BELOW 700px
+========================================================= */
+
+@media (max-width: 700px) {
+  .datatable-card-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .datatable-card-header-right {
+    width: 100%;
+  }
+
+  .employee-search {
+    flex: 1;
+
+    width: auto;
+  }
+
+  .employee-add-button {
+    min-width: 62px;
+  }
+
+  .data-table-controls {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "page export"
+      "filters";
+
+    align-items: stretch;
+
+    overflow: visible;
+  }
+
+  .employee-page-size {
+    grid-area: page;
+  }
+
+  .employee-filters {
+    grid-area: filters;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    overflow: visible;
+  }
+
+  .filter-box {
+    min-width: 145px;
+
+    flex: 1 1 145px;
+  }
+
+  .export-dropdown-wrapper {
+    grid-area: export;
+
+    justify-self: flex-end;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - BELOW 575px
+========================================================= */
+
+@media (max-width: 575px) {
+  .datatable-card-header {
+    padding: 12px;
+  }
+
+  .datatable-card-header-right {
+    align-items: stretch;
+  }
+
+  .employee-search {
+    width: 100%;
+  }
+
+  .data-table-controls {
+    padding: 9px 10px;
+
+    overflow: visible;
+  }
+
+  .employee-filters {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    align-items: stretch;
+
+    flex-direction: column;
+
+    flex-wrap: nowrap;
+
+    overflow: visible;
+
+    gap: 7px;
+  }
+
+  .filter-box {
+    width: 100%;
+
+    min-width: 0;
+
+    flex: 1 1 auto;
+  }
+
+  .filter-box .form-select,
+  .filter-box .filter-select-new {
+    width: 100%;
+  }
+
+  .clear-filter-button {
+    align-self: flex-start;
+
+    flex-shrink: 0;
+  }
+
+  .datatable-pagination {
+    align-items: flex-start;
+  }
+
+  .pagination-list {
+    width: max-content;
+  }
+}

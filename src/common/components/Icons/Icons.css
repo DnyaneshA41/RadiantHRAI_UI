@@ -1,0 +1,534 @@
+
+/* =========================================
+   COMMON ICON STYLES
+========================================= */
+
+.hrms-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 13px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* =========================================
+   COMMON ICON BUTTON STYLES
+========================================= */
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+.icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   EDIT ICON
+========================================= */
+
+.edit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.edit-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.edit-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   DELETE ICON
+========================================= */
+
+.delete-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #dc3545;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.delete-icon:hover {
+  color: #b02a37;
+  background-color: #fff0f1;
+}
+
+.delete-icon:focus-visible {
+  outline: 2px solid #dc3545;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   ADD ICON
+========================================= */
+
+.add-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #198754;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.add-icon:hover {
+  color: #146c43;
+  background-color: #eaf7ef;
+}
+
+.add-icon:focus-visible {
+  outline: 2px solid #198754;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   VIEW ICON
+========================================= */
+
+.view-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.view-icon:hover {
+  color: #334155;
+  background-color: #f1f5f9;
+}
+
+.view-icon:focus-visible {
+  outline: 2px solid #64748b;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   SEARCH ICON
+========================================= */
+
+.search-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #667085;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.search-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.search-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   DOWNLOAD ICON
+========================================= */
+
+.download-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.download-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.download-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   SAVE ICON
+========================================= */
+
+.save-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #198754;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.save-icon:hover {
+  color: #146c43;
+  background-color: #eaf7ef;
+}
+
+.save-icon:focus-visible {
+  outline: 2px solid #198754;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   CLOSE ICON
+========================================= */
+
+.close-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #667085;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.close-icon:hover {
+  color: #dc3545;
+  background-color: #fff0f1;
+}
+
+.close-icon:focus-visible {
+  outline: 2px solid #dc3545;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   CHECK ICON
+========================================= */
+
+.check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #198754;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.check-icon:hover {
+  color: #146c43;
+  background-color: #eaf7ef;
+}
+
+.check-icon:focus-visible {
+  outline: 2px solid #198754;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   FILTER ICON
+========================================= */
+
+.filter-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.filter-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.filter-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   REFRESH ICON
+========================================= */
+
+.refresh-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.refresh-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.refresh-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   EXPORT ICON
+========================================= */
+
+.export-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.export-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.export-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   ORGANIZATION ICON
+========================================= */
+
+.organization-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.organization-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+/* =========================================
+   USER ICON
+========================================= */
+
+.user-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.user-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+/* =========================================
+   EMAIL ICON
+========================================= */
+
+.email-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #64748b;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.email-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+/* =========================================
+   PHONE ICON
+========================================= */
+
+.phone-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #198754;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.phone-icon:hover {
+  color: #146c43;
+  background-color: #eaf7ef;
+}
+
+/* =========================================
+   CALENDAR ICON
+========================================= */
+
+.calendar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.calendar-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+/* =========================================
+   UPLOAD ICON
+========================================= */
+
+.upload-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #5b8def;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.upload-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.upload-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   BACK ICON
+========================================= */
+
+.back-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.back-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.back-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   NEXT ICON
+========================================= */
+
+.next-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.next-icon:hover {
+  color: #416fc4;
+  background-color: #eef4ff;
+}
+
+.next-icon:focus-visible {
+  outline: 2px solid #5b8def;
+  outline-offset: 2px;
+}

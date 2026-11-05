@@ -1,0 +1,26 @@
+
+/* Employee title dropdown + employee name input */
+
+.employee-name-control {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 8px;
+  align-items: self-start;
+  width: 100%;
+}
+
+.employee-name-control .hrms-form-group,
+.employee-name-control > div {
+  min-width: 0;
+}
+
+
+
+/* Responsive layout */
+
+@media (max-width: 767px) {
+  .employee-name-control {
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 8px;
+  }
+}

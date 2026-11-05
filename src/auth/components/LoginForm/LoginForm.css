@@ -1,0 +1,120 @@
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 15px;
+  flex-wrap: nowrap;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.store-btn img {
+  width: 145px;      /* Adjust as needed */
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.store-btn:hover {
+  transform: translateY(-3px);
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa5b1;
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.eye-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa5b1;
+  font-size: 20px;
+  transition: color 0.2s ease;
+}
+
+.eye-btn:hover {
+  color: #1565c0;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.store-buttons a {
+  display: flex;
+  transition: transform 0.25s ease;
+}
+
+.store-buttons a:hover {
+  transform: translateY(-3px);
+}
+
+.store-buttons img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.error-text {
+  color: #e53935;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 6px;
+  text-align: left;
+  padding-left: 10px;
+  margin-top: -14px;
+}
+
+.forgot-password {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.login-footer {
+  margin-top: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.our-company-logo {
+  width: 40px;
+  height: auto;
+}
+
+.footer-text {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  max-width: 260px;
+}
+
+.footer-text a {
+  color: #666;
+  text-decoration: underline;
+}
+
+.footer-text a:hover {
+  color: #6b4cff;
+}

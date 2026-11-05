@@ -1,0 +1,711 @@
+/* =========================================================
+   HEADER
+========================================================= */
+
+.hrms-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: var(--rh-header-height);
+
+    background: #ffffff;
+    border-bottom: 1px solid var(--rh-border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    z-index: 1200;
+    box-sizing: border-box;
+
+    transition:
+        left var(--rh-transition),
+        width var(--rh-transition);
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.header-left {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   COMPANY BRAND
+========================================================= */
+
+.company-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   COMPANY LOGO WRAPPER
+========================================================= */
+
+.company-logo-wrapper {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   COMPANY LOGO
+========================================================= */
+
+.company-logo {
+    max-width: 44px;
+    max-height: 44px;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+    /* display: none; */
+}
+
+
+/* =========================================================
+   COMPANY NAME
+========================================================= */
+
+.company-name {
+    color: var(--rh-primary);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: 0.15px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.header-right {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+    margin-left: auto;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   HEADER ICON BUTTON
+========================================================= */
+
+.header-icon-button {
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    color: #344054;
+
+    cursor: pointer;
+
+    border: 0;
+    border-radius: 4px;
+
+    transition:
+        background var(--rh-transition),
+        color var(--rh-transition);
+}
+
+
+/* =========================================================
+   HEADER ICON HOVER
+========================================================= */
+
+.header-icon-button:hover {
+    background: #f2f5f8;
+    color: var(--rh-primary);
+}
+
+
+/* =========================================================
+   NOTIFICATION DOT
+========================================================= */
+
+.notification-indicator {
+    position: absolute;
+
+    top: 7px;
+    right: 7px;
+
+    width: 7px;
+    height: 7px;
+
+    background: #e51014;
+
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+
+    box-sizing: content-box;
+}
+
+
+/* =========================================================
+   PROFILE CONTAINER
+========================================================= */
+
+.header-profile-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   PROFILE BUTTON
+========================================================= */
+
+.header-profile-button {
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    background: #ffffff;
+    color: #344054;
+
+    cursor: pointer;
+
+    border: 1px solid var(--rh-border);
+    border-radius: 50%;
+
+    overflow: hidden;
+    flex-shrink: 0;
+
+    transition:
+        background var(--rh-transition),
+        border-color var(--rh-transition),
+        color var(--rh-transition);
+}
+
+
+/* =========================================================
+   PROFILE PHOTO
+========================================================= */
+
+.header-profile-photo {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   PROFILE HOVER
+========================================================= */
+
+.header-profile-button:hover {
+    background: #f2f5f8;
+    border-color: var(--rh-primary-light);
+    color: var(--rh-primary);
+}
+
+
+/* =========================================================
+   PROFILE CHEVRON
+========================================================= */
+
+.profile-chevron {
+    flex-shrink: 0;
+    color: #64748b;
+
+    transition: transform 0.2s ease;
+}
+
+.profile-chevron-open {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN
+========================================================= */
+
+.header-profile-dropdown {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 230px;
+    max-width: calc(100vw - 20px);
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.10);
+
+    z-index: 1300;
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    animation: profileDropdownEnter 0.16s ease-out;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN ANIMATION
+========================================================= */
+
+@keyframes profileDropdownEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN USER DETAILS
+========================================================= */
+
+.profile-dropdown-user {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+    padding: 14px;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN AVATAR
+========================================================= */
+
+.profile-dropdown-avatar {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #2563eb;
+    background: #eff6ff;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN DETAILS
+========================================================= */
+
+.profile-dropdown-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN NAME
+========================================================= */
+
+.profile-dropdown-name {
+    color: #1e293b;
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN ROLE
+========================================================= */
+
+.profile-dropdown-role {
+    color: #64748b;
+
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN DIVIDER
+========================================================= */
+
+.profile-dropdown-divider {
+    width: 100%;
+    height: 1px;
+
+    background: #e2e8f0;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN LOGOUT BUTTON
+========================================================= */
+
+.profile-dropdown-logout {
+    width: 100%;
+    min-height: 42px;
+
+    padding: 12px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border: none;
+    border-radius: 0;
+
+    background: #ffffff;
+    color: #dc2626;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background var(--rh-transition),
+        color var(--rh-transition);
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN LOGOUT HOVER
+========================================================= */
+
+.profile-dropdown-logout:hover {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN LOGOUT FOCUS
+========================================================= */
+
+.profile-dropdown-logout:focus-visible {
+    outline: 2px solid var(--rh-primary);
+    outline-offset: -3px;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-header-menu {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 4px;
+
+    background: transparent;
+    color: var(--rh-primary);
+
+    cursor: pointer;
+
+    transition:
+        background var(--rh-transition),
+        color var(--rh-transition);
+}
+
+
+/* =========================================================
+   MOBILE MENU HOVER
+========================================================= */
+
+.mobile-header-menu:hover {
+    background: #f2f5f8;
+    color: var(--rh-primary-hover);
+}
+
+
+/* =========================================================
+   TABLET
+   768px - 991px
+   Sidebar width = 126px
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .hrms-header {
+        left: 0;
+        right: 0;
+        width: auto;
+        padding: 0 18px;
+    }
+
+    .header-right {
+        gap: 16px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 767px
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .hrms-header {
+        top: 0;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        height: var(--rh-header-height);
+
+        padding: 0 12px;
+    }
+
+    .header-left {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .company-brand {
+        gap: 9px;
+        min-width: 0;
+    }
+
+    .company-logo-wrapper {
+        width: 38px;
+        height: 38px;
+    }
+
+    .company-logo {
+        display: block;
+
+        max-width: 36px;
+        max-height: 36px;
+    }
+
+    .company-name {
+        max-width: 190px;
+
+        font-size: 12px;
+        line-height: 16px;
+
+        letter-spacing: 0.1px;
+    }
+
+    .header-right {
+        gap: 6px;
+        margin-left: 8px;
+    }
+
+    .mobile-header-menu {
+        display: flex;
+
+        width: 36px;
+        height: 36px;
+    }
+
+    .header-icon-button {
+        width: 36px;
+        height: 36px;
+    }
+
+    .header-profile-button {
+        width: 36px;
+        height: 36px;
+    }
+
+    .header-profile-dropdown {
+        top: calc(100% + 8px);
+        width: 220px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   <= 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hrms-header {
+        top: 0;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .company-brand {
+        gap: 7px;
+    }
+
+    .company-logo-wrapper {
+        width: 34px;
+        height: 34px;
+    }
+
+    .company-logo {
+        max-width: 32px;
+        max-height: 32px;
+    }
+
+    .company-name {
+        max-width: 130px;
+
+        font-size: 11px;
+        line-height: 15px;
+    }
+
+    .header-right {
+        gap: 3px;
+        margin-left: 5px;
+    }
+
+    .mobile-header-menu {
+        width: 34px;
+        height: 34px;
+    }
+
+    .header-icon-button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .header-profile-button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .header-profile-dropdown {
+        right: 0;
+        width: 210px;
+        max-width: calc(100vw - 20px);
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   <= 360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .hrms-header {
+        top: 0;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        padding: 0 8px;
+    }
+
+    .company-name {
+        max-width: 105px;
+        font-size: 10px;
+    }
+
+    .header-right {
+        gap: 1px;
+    }
+
+    .mobile-header-menu,
+    .header-icon-button,
+    .header-profile-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .header-profile-dropdown {
+        width: 200px;
+        max-width: calc(100vw - 16px);
+    }
+}
+
+
+/* =========================================================
+   DESKTOP / TABLET LOGO SAFETY
+========================================================= */
+
+/* @media (min-width: 768px) {
+
+    .company-logo {
+        display: none !important;
+    }
+} */

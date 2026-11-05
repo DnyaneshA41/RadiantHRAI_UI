@@ -1,0 +1,143 @@
+.hrms-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(16, 24, 40, 0.45);
+  backdrop-filter: blur(2px);
+  animation: hrms-overlay-fade 0.2s ease;
+}
+
+.hrms-confirm-modal {
+  width: 100%;
+  max-width: 400px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+  box-shadow: 0 16px 48px rgba(16, 24, 40, 0.18);
+  text-align: center;
+  animation: hrms-modal-enter 0.25s ease;
+}
+
+.hrms-confirm-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: #fef3f2;
+  color: #d92d20;
+}
+
+.hrms-confirm-title {
+  margin: 0 0 12px;
+  color: #344054;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hrms-confirm-message {
+  margin: 0;
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.hrms-confirm-message strong {
+  color: #344054;
+  font-weight: 600;
+}
+
+.hrms-confirm-note {
+  margin: 10px 0 0;
+  color: #667085;
+  font-size: 12px;
+}
+
+.hrms-confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.hrms-confirm-actions button {
+  min-width: 105px;
+  padding: 9px 18px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.hrms-confirm-cancel {
+  background: #ffffff;
+  border-color: #d0d5dd !important;
+  color: #344054;
+}
+
+.hrms-confirm-cancel:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.hrms-confirm-delete {
+  background: #d92d20;
+  color: #ffffff;
+}
+
+.hrms-confirm-delete:hover:not(:disabled) {
+  background: #b42318;
+}
+
+.hrms-confirm-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes hrms-overlay-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hrms-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .hrms-confirm-modal {
+    padding: 22px;
+  }
+
+  .hrms-confirm-actions {
+    gap: 8px;
+  }
+
+  .hrms-confirm-actions button {
+    flex: 1;
+    min-width: 0;
+  }
+}

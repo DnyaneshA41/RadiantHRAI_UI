@@ -1,0 +1,182 @@
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.hrms-offcanvas-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  z-index: 1201;
+
+  animation: hrmsOverlayFade 0.2s ease;
+}
+
+/* =========================================================
+   OFFCANVAS
+========================================================= */
+
+.hrms-offcanvas {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  max-width: 100vw;
+
+  background: #ffffff;
+
+  z-index: 1202;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: -6px 0 25px rgba(15, 23, 42, 0.12);
+
+  animation: hrmsOffcanvasSlide 0.25s ease;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.hrms-offcanvas-header {
+  min-height: 60px;
+
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e4e8ee;
+
+  flex-shrink: 0;
+}
+
+.hrms-offcanvas-title {
+  font-size: 19px;
+  font-weight: 600;
+
+  color: #172033;
+}
+
+.hrms-offcanvas-close {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e0e5eb;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #526174;
+
+  cursor: pointer;
+
+  transition: all 0.15s ease;
+}
+
+.hrms-offcanvas-close:hover {
+  background: #f3f6f9;
+  color: #172033;
+}
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.hrms-offcanvas-body {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 12px;
+
+  background: #ffffff;
+}
+
+.hrms-offcanvas-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.hrms-offcanvas-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hrms-offcanvas-body::-webkit-scrollbar-thumb {
+  background: #cbd3dd;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.hrms-offcanvas-footer {
+  min-height: 66px;
+
+  padding: 12px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  border-top: 1px solid #e4e8ee;
+
+  background: #ffffff;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes hrmsOffcanvasSlide {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hrmsOverlayFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .hrms-offcanvas {
+    width: 100% !important;
+  }
+
+  .hrms-offcanvas-header {
+    min-height: 62px;
+    padding: 0 17px;
+  }
+
+  .hrms-offcanvas-footer {
+    padding: 10px 17px;
+  }
+}

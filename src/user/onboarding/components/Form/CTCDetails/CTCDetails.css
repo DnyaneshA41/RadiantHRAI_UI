@@ -1,0 +1,687 @@
+.ctc-details-page {
+  width: 100%;
+  color: #343434;
+  font-size: 13px;
+}
+
+/* =========================================
+   EMPLOYEE HEADER
+========================================= */
+
+.ctc-employee-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  margin-bottom: 13px;
+  border: 1px solid #e6e2dc;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ctc-employee-info {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.ctc-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: #1767b1;
+  background: #e5f1fc;
+  font-size: 14px;
+}
+
+.ctc-employee-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.ctc-employee-id {
+  margin-left: 10px;
+  color: #88857f;
+}
+
+.ctc-employee-subtitle {
+  margin-top: 4px;
+  color: #68655f;
+  font-size: 13px;
+}
+
+.ctc-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.ctc-main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  align-items: start;
+  gap: 12px;
+}
+
+.ctc-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ctc-card {
+  margin-bottom: 0;
+  padding: 12px;
+  border: 1px solid #e6e2dc;
+  background: #fff;
+}
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.ctc-field-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #85827b;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.ctc-salary-options {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.ctc-salary-option {
+  padding: 5px;
+  border: 1px solid #e3dfd8;
+  border-radius: 5px;
+  background: #fff;
+  color: #484848;
+  cursor: pointer;
+}
+
+.ctc-salary-option.active {
+  background: #f0f6ff;
+  border: 1px solid #2864ff;
+  color: #344b67;
+}
+
+.ctc-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.ctc-select-wrapper svg {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  width: 13px;
+  height: 13px;
+  pointer-events: none;
+}
+
+/* =========================================
+   EARNINGS CARD
+========================================= */
+
+.ctc-earnings-card {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dfe9f5;
+  border-radius: 8px;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.ctc-earnings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 19px;
+}
+
+.ctc-section-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ctc-auto-split {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  color: #1767bd;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ctc-auto-split svg {
+  color: #ff9d42;
+}
+
+.ctc-method {
+  color: #85827b;
+}
+
+/* =========================================
+   LIVE SUMMARY CARD
+========================================= */
+
+.ctc-summary-card {
+  width: 100%;
+  min-width: 0;
+  flex-grow: 1;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #efedff;
+  color: #423c96;
+  overflow: hidden;
+}
+
+/* Heading */
+
+.ctc-summary-heading {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+/* Net take-home */
+
+.ctc-summary-takehome {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ctc-summary-label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.ctc-summary-amount {
+  font-size: clamp(26px, 2.7vw, 40px);
+  line-height: 1;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.ctc-summary-percentage {
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+/* =========================================
+   COMPOSITION BAR
+========================================= */
+
+.ctc-composition {
+  margin-top: 17px;
+}
+
+.ctc-composition-label {
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.ctc-composition-bar {
+  display: flex;
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #263956;
+}
+
+.ctc-bar-earnings {
+  background: #49c69a;
+}
+
+.ctc-bar-employer {
+  background: #5b91e8;
+}
+
+.ctc-bar-taxes {
+  background: #f0aa45;
+}
+
+/* =========================================
+   SUMMARY BREAKDOWN
+========================================= */
+
+.ctc-summary-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.ctc-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+}
+
+
+.ctc-summary-row span:last-child {
+  font-variant-numeric: tabular-nums;
+}
+
+.ctc-summary-row strong {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.ctc-summary-item-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* =========================================
+   SUMMARY DOTS
+========================================= */
+
+.ctc-dot {
+  display: inline-block;
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.ctc-dot-earnings {
+  background: #49c69a;
+}
+
+.ctc-dot-employer {
+  background: #5b91e8;
+}
+
+.ctc-dot-taxes {
+  background: #f0aa45;
+}
+
+/* =========================================
+   ANNUAL GROSS
+========================================= */
+
+.ctc-summary-annual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #263956;
+  font-size: 12px;
+}
+
+
+.ctc-summary-annual strong {
+  font-weight: 500;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   STATUTORY COMPLIANCE
+========================================= */
+
+.ctc-summary-compliance {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 13px;
+  color: #49c69a;
+  font-size: 12px;
+}
+
+/* =========================================
+   COUNTRY & PAYROLL SETUP
+========================================= */
+
+.ctc-country-header {
+  margin-bottom: 10px;
+}
+
+.ctc-country-header .ctc-section-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ctc-country-description {
+  margin: 3px 0 0;
+  color: #85827b;
+  font-size: 11px;
+}
+
+.ctc-country-options {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) 60px;
+  gap: 6px;
+}
+
+.ctc-country-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  min-height: 32px;
+  padding: 6px 8px;
+  border: 1px solid #e3dfd8;
+  border-radius: 5px;
+  background: #fff;
+  color: #454545;
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.ctc-country-option.active {
+  background: #f0f6ff;
+  border: 1px solid #2864ff;
+  color: #344b67;
+}
+
+.ctc-country-code {
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.ctc-more-countries {
+  border-style: dashed;
+}
+
+/* =========================================
+   EMPLOYEE & EMPLOYER CONTRIBUTIONS
+========================================= */
+
+.ctc-contributions-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  align-items: start;
+}
+
+.ctc-earnings-card .ctc-table-input .hrms-form-control,
+.ctc-contribution-table .ctc-contribution-input .hrms-form-control {
+  padding-right: 12px;
+  text-align: right;
+}
+
+/* =========================================
+   LIVE SUMMARY + AI SUGGESTION COLUMN
+========================================= */
+
+.ctc-summary-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  align-self: start;
+}
+
+/* =========================================
+   RADIANT AI SUGGESTION CARD
+========================================= */
+
+.ctc-ai-suggestion-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1.5px solid #f5a33b;
+  border-radius: 8px;
+  background: #fff8ee;
+  color: #263247;
+}
+
+.ctc-ai-suggestion-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: #a45b00;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ctc-ai-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #c87908;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ctc-ai-suggestion-content h4 {
+  margin: 0 0 5px;
+  color: #172033;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ctc-ai-suggestion-content p {
+  margin: 0;
+  color: #737e90;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ctc-ai-suggestion-content strong {
+  color: #16804c;
+  font-weight: 500;
+}
+
+/* =========================================
+   AI ACTION BUTTONS
+========================================= */
+
+.ctc-ai-suggestion-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.ctc-ai-suggestion-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ctc-ai-apply-btn {
+  border: 1px solid #c87908;
+  background: #c87908;
+  color: #fff;
+}
+
+.ctc-ai-apply-btn:hover {
+  background: #a96305;
+  border-color: #a96305;
+}
+
+.ctc-ai-details-btn {
+  border: 1px solid #e6a34c;
+  background: transparent;
+  color: #9d5b08;
+}
+
+.ctc-ai-details-btn:hover {
+  background: #fff0dc;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 480px) {
+  
+  .ctc-ai-suggestion-actions {
+    gap: 8px;
+  }
+
+  .ctc-ai-suggestion-actions button {
+    padding: 7px 8px;
+  }
+}
+/* =========================================
+   RESPONSIVE LAYOUT
+========================================= */
+
+@media (max-width: 1200px) {
+  
+  .ctc-country-options {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .ctc-main-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .ctc-settings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ctc-salary-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ctc-summary-card {
+    max-width: 100%;
+  }
+
+  .ctc-country-options {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ctc-employee-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ctc-header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .ctc-main-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ctc-settings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ctc-earnings-card {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .ctc-contributions-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ctc-country-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .ctc-settings-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ctc-salary-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ctc-earnings-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ctc-take-home strong {
+    font-size: 19px;
+  }
+
+  .ctc-summary-card {
+    padding: 18px;
+  }
+
+  .ctc-summary-heading {
+    font-size: 13px;
+  }
+
+  .ctc-summary-row,
+  .ctc-summary-annual {
+    font-size: 13px;
+  }
+
+  .ctc-summary-row strong {
+    font-size: 13px;
+  }
+
+  .ctc-summary-amount {
+    font-size: 36px;
+  }
+
+  .ctc-country-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

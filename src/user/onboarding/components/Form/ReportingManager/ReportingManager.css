@@ -1,0 +1,24 @@
+
+/* Column sizing */
+
+.normal-table .reporting-manager-sr-column {
+  width: 12%;
+}
+
+.normal-table .reporting-manager-module-column {
+  width: 27%;
+}
+
+
+.normal-table .reporting-manager-sr-cell {
+  color: #66788f;
+}
+
+.normal-table .reporting-manager-module-cell {
+  color: #687b92;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+

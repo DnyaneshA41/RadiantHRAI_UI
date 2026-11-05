@@ -1,0 +1,431 @@
+/* =========================================================
+   USER LAYOUT
+========================================================= */
+
+.hrms-layout {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   MAIN CONTENT AREA
+========================================================= */
+
+.hrms-main {
+    min-height: 100vh;
+
+    margin-left: var(--rh-sidebar-width);
+
+    width: auto;
+    min-width: 0;
+
+    transition: margin-left var(--rh-transition);
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+   Vertical scroll container
+========================================================= */
+
+.hrms-content {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    min-height: 0;
+
+    box-sizing: border-box;
+
+    padding:
+        calc(
+            var(--rh-header-height) +
+            var(--rh-module-nav-height) +
+            10px
+        )
+        10px
+        30px;
+
+    background: var(--rh-body-bg);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: thin;
+}
+
+
+/* =========================================================
+   DASHBOARD CONTENT
+   Dashboard does NOT use ModuleNav spacing
+========================================================= */
+
+.hrms-content.dashboard-content {
+    width: 100%;
+
+    min-height: 100vh;
+    height: 100vh;
+
+    box-sizing: border-box;
+
+    /* Only Header spacing */
+    padding:
+        calc(var(--rh-header-height) + 10px)
+        15px
+        30px;
+
+    margin: 0;
+
+    background: var(--rh-body-bg);
+
+    /* Dashboard owns the scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   DEVELOPER INFO CONTENT
+   Developer Info is INSIDE hrms-content
+   and does NOT use ModuleNav spacing
+========================================================= */
+
+.hrms-content:has(.developer-info-page) {
+    width: 100%;
+
+    min-height: 100vh;
+    height: 100vh;
+
+    box-sizing: border-box;
+
+    /* Only Header spacing */
+    padding:
+        var(--rh-header-height)
+        15px
+        30px;
+
+    margin: 0;
+
+    background: var(--rh-body-bg);
+
+    /* Developer Info owns the scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ENTERPRISE CONTENT PANEL
+========================================================= */
+
+.enterprise-panel {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid var(--rh-border);
+
+    border-radius: var(--rh-radius);
+
+    box-shadow: none;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title {
+    margin: 0;
+
+    color: var(--rh-text-primary);
+
+    font-size: 22px;
+
+    font-weight: 500;
+}
+
+
+.page-subtitle {
+    margin: 4px 0 0;
+
+    color: var(--rh-text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   GENERIC CARD
+========================================================= */
+
+.card {
+    width: 100%;
+
+    border: 1px solid var(--rh-border);
+
+    border-radius: var(--rh-radius);
+
+    box-shadow: none;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TABLE / CONTENT SAFETY
+========================================================= */
+
+.hrms-content img {
+    max-width: 100%;
+}
+
+.hrms-content table {
+    max-width: 100%;
+}
+
+.hrms-content input,
+.hrms-content select,
+.hrms-content textarea {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   TABLET
+   Sidebar = 126px
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .hrms-main {
+        margin-left: 126px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   Sidebar becomes overlay.
+========================================================= */
+
+@media (max-width: 767px) {
+
+    /* -----------------------------------------
+       MAIN
+    ----------------------------------------- */
+
+    .hrms-main {
+        position: fixed;
+
+        /*
+           Normal pages:
+           Header + Module Nav
+        */
+        top:
+            calc(
+                var(--rh-header-height) +
+                var(--rh-module-nav-height)
+            );
+
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        min-width: 0;
+        min-height: 0;
+
+        max-width: 100%;
+
+        margin-left: 0;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+
+    /* -----------------------------------------
+       DASHBOARD
+       No Module Nav
+    ----------------------------------------- */
+
+    .hrms-main:has(.dashboard-content) {
+        top: var(--rh-header-height);
+    }
+
+
+    /* -----------------------------------------
+       DEVELOPER INFO
+       No Module Nav
+    ----------------------------------------- */
+
+    .hrms-main:has(.developer-info-page) {
+        top: var(--rh-header-height);
+    }
+
+
+    /* -----------------------------------------
+       PAGE CONTENT
+    ----------------------------------------- */
+
+    .hrms-content {
+        width: 100%;
+
+        min-width: 0;
+        min-height: 100%;
+
+        box-sizing: border-box;
+
+        padding: 10px 10px 20px;
+    }
+
+
+    /* -----------------------------------------
+       DASHBOARD CONTENT
+    ----------------------------------------- */
+
+    .dashboard-content {
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 10px 12px !important;
+
+        margin-top: 0;
+    }
+
+
+    /* -----------------------------------------
+       DEVELOPER INFO CONTENT
+    ----------------------------------------- */
+
+    .hrms-content:has(.developer-info-page) {
+        width: 100%;
+
+        min-width: 0;
+        min-height: 100%;
+
+        box-sizing: border-box;
+
+        padding: 10px 12px !important;
+
+        margin-top: 0;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+
+    /* -----------------------------------------
+       PANELS
+    ----------------------------------------- */
+
+    .enterprise-panel {
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------
+       PAGE HEADER
+    ----------------------------------------- */
+
+    .page-header {
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        margin-bottom: 12px;
+    }
+
+
+    /* -----------------------------------------
+       PAGE TITLE
+    ----------------------------------------- */
+
+    .page-title {
+        font-size: 19px;
+    }
+
+    .page-subtitle {
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------
+       CARDS
+    ----------------------------------------- */
+
+    .card {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hrms-content {
+        padding: 8px 8px 15px;
+    }
+
+
+    /* -----------------------------------------
+       DASHBOARD
+    ----------------------------------------- */
+
+    .dashboard-content {
+        padding: 8px 10px !important;
+
+        margin-top: 0;
+    }
+
+
+    /* -----------------------------------------
+       DEVELOPER INFO
+    ----------------------------------------- */
+
+    .hrms-content:has(.developer-info-page) {
+        padding: 8px 10px !important;
+
+        margin-top: 0;
+    }
+
+
+    /* -----------------------------------------
+       PAGE TITLE
+    ----------------------------------------- */
+
+    .page-title {
+        font-size: 18px;
+    }
+}

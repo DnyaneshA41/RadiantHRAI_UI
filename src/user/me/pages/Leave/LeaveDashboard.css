@@ -1,0 +1,894 @@
+/* =========================================
+   PAGE BASE
+========================================= */
+
+.leave-dashboard-page {
+  width: 100%;
+  min-width: 0;
+  padding: 5px;
+  padding-top: 0;
+  color: #344054;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.leave-dashboard-page *,
+.leave-dashboard-page *::before,
+.leave-dashboard-page *::after {
+  box-sizing: border-box;
+}
+
+.leave-dashboard-page button,
+.leave-dashboard-page input,
+.leave-dashboard-page select,
+.leave-dashboard-page textarea {
+  font: inherit;
+}
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.leave-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.leave-page-header h2 {
+  margin: 0 0 5px;
+  color: #234a75;
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.leave-page-header p {
+  margin: 0;
+  color: #8994a3;
+  font-size: 11px;
+}
+
+.leave-text-link {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: #2f80ed;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================================
+   DASHBOARD TABS
+========================================= */
+
+.leave-dashboard-tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 10px;
+  overflow-x: auto;
+}
+
+.leave-dashboard-tabs button {
+  min-height: 32px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #8994a3;
+  cursor: pointer;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.leave-dashboard-tabs button.active {
+  border-bottom-color: #2f80ed;
+  color: #2f80ed;
+  font-weight: 600;
+}
+
+/* =========================================
+   COMMON SECTION / CARD
+========================================= */
+
+.leave-dashboard-section {
+  min-width: 0;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #fff;
+  border: 1px solid #e6e2dc;
+  border-radius: 8px;
+}
+
+.leave-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+.leave-section-heading h3 {
+  margin: 0;
+  color: #234a75;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.leave-filter-select {
+  height: 33px;
+  min-width: 120px;
+  padding: 0 9px;
+  border: 1px solid #d5dce5;
+  border-radius: 5px;
+  background: #fff;
+  color: #475467;
+  outline: none;
+  font-size: 11px;
+}
+
+.leave-filter-select:focus {
+  border-color: #2f80ed;
+}
+
+/* =========================================
+   PENDING REQUESTS
+========================================= */
+
+.leave-pending-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.leave-pending-item {
+  min-width: 0;
+  min-height: 68px;
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid #d6cffe;
+  border-radius: 7px;
+  background: #efedff;
+}
+
+.leave-pending-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #e2ddff;
+  color: #423c96;
+}
+
+.leave-pending-info {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.leave-pending-info strong {
+  color: #423c96;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.leave-pending-info span {
+  color: #423c96;
+  font-size: 10px;
+}
+
+.leave-empty-state {
+  min-height: 115px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #e6e2dc;
+  border-radius: 7px;
+  background: #fff;
+  color: #2f80ed;
+  text-align: center;
+}
+
+.leave-empty-state strong {
+  color: #344054;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.leave-empty-state span {
+  color: #8994a3;
+  font-size: 10px;
+}
+
+/* =========================================
+   LEAVE STATS GRID
+========================================= */
+
+.leave-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.leave-card {
+  min-width: 0;
+  border: 1px solid #e6e2dc;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.leave-chart-card {
+  min-height: 190px;
+  padding: 13px;
+}
+
+.leave-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 13px;
+}
+
+.leave-card-heading h4 {
+  margin: 0;
+  color: #475467;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.leave-card-heading svg {
+  color: #8994a3;
+  font-size: 14px;
+}
+
+/* =========================================
+   WEEKLY PATTERN CHART
+========================================= */
+
+.leave-weekly-chart {
+  height: 125px;
+  padding: 0 5px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end;
+  border-bottom: 1px solid #eeece8;
+}
+
+.leave-weekly-column {
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.leave-bar-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.leave-weekly-bar {
+  width: 25px;
+  max-height: 90px;
+  min-height: 2px;
+  background: #2f80ed;
+}
+
+.leave-weekly-column span,
+.leave-month-column span {
+  color: #8994a3;
+  font-size: 10px;
+}
+
+/* =========================================
+   CONSUMED LEAVE DONUT
+========================================= */
+
+.leave-donut-area {
+  min-height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leave-donut {
+  width: 108px;
+  height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: conic-gradient(#219653 0deg 245deg,
+      #2f80ed 245deg 305deg,
+      #dc8a24 305deg 360deg);
+}
+
+.leave-donut>div {
+  width: 74px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.leave-donut strong,
+.leave-donut span {
+  color: #344054;
+  font-size: 11px;
+}
+
+.leave-chart-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.leave-chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #8994a3;
+  font-size: 9px;
+}
+
+.leave-chart-legend i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.leave-chart-legend i.casual {
+  background: #219653;
+}
+
+.leave-chart-legend i.sick {
+  background: #2f80ed;
+}
+
+.leave-chart-legend i.earned {
+  background: #dc8a24;
+}
+
+/* =========================================
+   MONTHLY CHART
+========================================= */
+
+.leave-monthly-chart {
+  height: 125px;
+  padding: 0 5px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: end;
+  border-bottom: 1px solid #eeece8;
+}
+
+.leave-month-column {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.leave-month-bar {
+  width: 24px;
+  max-height: 90px;
+  background: #8db8ee;
+}
+
+/* =========================================
+   LEAVE BALANCES
+========================================= */
+
+.leave-balance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.leave-balance-card {
+  padding: 13px;
+}
+
+.leave-balance-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leave-balance-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #edf4ff;
+  color: #2f80ed;
+}
+
+.leave-balance-top>span {
+  min-width: 0;
+  flex: 1;
+  color: #475467;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.leave-balance-top>button {
+  padding: 3px;
+  border: 0;
+  background: transparent;
+  color: #8994a3;
+  cursor: pointer;
+}
+
+.leave-balance-number {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 15px 0 11px 44px;
+}
+
+.leave-balance-number strong {
+  color: #234a75;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.leave-balance-number span {
+  color: #8994a3;
+  font-size: 10px;
+}
+
+.leave-balance-track {
+  height: 5px;
+  margin-left: 44px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #edf0f3;
+}
+
+.leave-balance-progress {
+  height: 100%;
+  border-radius: 5px;
+  background: #2f80ed;
+}
+
+.progress-1 {
+  background: #dc8a24;
+}
+
+.progress-2 {
+  background: #219653;
+}
+
+.progress-3 {
+  background: #7955c8;
+}
+
+/* =========================================
+   STATUS BADGES
+========================================= */
+
+.leave-status {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.leave-status.pending {
+  background: #fff5e9;
+  color: #c77918;
+  border: 1px solid #ffdbae;
+}
+
+.leave-status.approved {
+  background: #eaf7ef;
+  color: #219653;
+}
+
+.leave-status.rejected {
+  background: #fff0ef;
+  color: #d64545;
+}
+
+/* =========================================
+   LEAVE TABLE
+========================================= */
+
+.leave-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e6e2dc;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.leave-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+}
+
+.leave-table th {
+  padding: 11px;
+  background: #f8fafc;
+  color: #8994a3;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.leave-table td {
+  padding: 12px 11px;
+  border-bottom: 1px solid #f0efed;
+  color: #475467;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.leave-table tbody tr:hover {
+  background: #fafcff;
+}
+
+.leave-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* =========================================
+   REQUEST LEAVE OFFCANVAS FORM
+========================================= */
+
+.leave-request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 10px;
+}
+
+/* DATE RANGE */
+
+.leave-date-range-card {
+  padding: 8px 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e6e2dc;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.leave-date-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.leave-date-field label {
+  color: #8994a3;
+  font-size: 10px;
+}
+
+.leave-date-field input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #344054;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.leave-date-field-right {
+  text-align: right;
+}
+
+.leave-date-field-right input {
+  text-align: right;
+}
+
+.leave-date-duration {
+  padding: 8px 10px;
+  border: 1px solid #e6e2dc;
+  border-radius: 5px;
+  background: #fff;
+  color: #667085;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* FORM GROUPS */
+
+.leave-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.leave-form-group label {
+  color: #475467;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.leave-form-group input,
+.leave-form-group select,
+.leave-form-group textarea {
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 10px;
+  border: 1px solid #d5dce5;
+  border-radius: 5px;
+  background: #fff;
+  color: #344054;
+  outline: none;
+  font-size: 11px;
+}
+
+.leave-form-group textarea {
+  resize: vertical;
+}
+
+.leave-form-group input:focus,
+.leave-form-group select:focus,
+.leave-form-group textarea:focus {
+  border-color: #2f80ed;
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.1);
+}
+
+.leave-form-group input::placeholder,
+.leave-form-group textarea::placeholder {
+  color: #98a2b3;
+}
+
+/* FULL DAY / CUSTOM */
+
+.leave-mode-switch {
+  width: fit-content;
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid #edf0f3;
+  border-radius: 6px;
+  background: #f8fafc;
+}
+
+.leave-mode-switch button {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #7b8794;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.leave-mode-switch button.active {
+  background: #fff;
+  color: #2f80ed;
+  box-shadow: 0 1px 4px rgba(31, 41, 55, 0.1);
+  font-weight: 600;
+}
+
+/* CUSTOM HOURS */
+
+.leave-custom-hours {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #e6e2dc;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.leave-custom-hours input {
+  width: 58px;
+  height: 36px;
+  padding: 7px;
+  border: 1px solid #d5dce5;
+  border-radius: 5px;
+  outline: none;
+  background: #fff;
+  color: #344054;
+  font-size: 11px;
+}
+
+.leave-custom-hours input[type="time"] {
+  width: 100px;
+}
+
+.leave-custom-hours input:focus {
+  border-color: #2f80ed;
+}
+
+.leave-custom-hours span {
+  color: #475467;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.leave-custom-hours .leave-time-period {
+  color: #2f80ed;
+}
+
+.leave-duration-info {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: -5px;
+  color: #667085;
+  font-size: 11px;
+}
+
+.leave-duration-info svg {
+  color: #8994a3;
+}
+
+.leave-duration-info strong {
+  color: #344054;
+}
+
+.leave-field-error {
+  color: #d64545;
+  font-size: 10px;
+}
+
+.leave-date-field .leave-field-error {
+  white-space: normal;
+}
+
+/* OFFCANVAS FOOTER ACTIONS */
+
+.leave-offcanvas-footer-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* =========================================
+   RESPONSIVE: 1200px
+========================================= */
+
+@media (max-width: 1200px) {
+  .leave-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .leave-chart-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================================
+   RESPONSIVE: 850px
+========================================= */
+
+@media (max-width: 850px) {
+  .leave-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .leave-balance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   RESPONSIVE: 600px
+========================================= */
+
+@media (max-width: 600px) {
+
+  .leave-dashboard-section {
+    padding: 7px;
+  }
+
+  .leave-section-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .leave-stats-grid,
+  .leave-balance-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .leave-chart-card:last-child {
+    grid-column: auto;
+  }
+
+  .leave-dashboard-tabs {
+    gap: 2px;
+  }
+
+  .leave-dashboard-tabs button {
+    padding: 0 8px;
+    font-size: 10px;
+  }
+
+  .leave-pending-item {
+    padding: 9px;
+  }
+
+  .leave-date-range-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .leave-date-field-right,
+  .leave-date-field-right input {
+    text-align: left;
+  }
+
+  .leave-custom-hours {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================
+   RESPONSIVE: 380px
+========================================= */
+
+@media (max-width: 380px) {
+  .leave-page-header h2 {
+    font-size: 17px;
+  }
+
+  .leave-section-heading h3 {
+    font-size: 14px;
+  }
+
+  .leave-pending-item {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .leave-status {
+    font-size: 9px;
+  }
+
+  .leave-custom-hours {
+    gap: 6px;
+  }
+}

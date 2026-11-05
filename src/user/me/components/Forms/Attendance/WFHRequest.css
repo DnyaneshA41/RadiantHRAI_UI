@@ -1,0 +1,289 @@
+
+/* =========================================
+   REQUEST WFH OFFCANVAS FORM
+========================================= */
+
+.wfh-request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 10px;
+}
+
+/* DATE RANGE */
+
+.wfh-date-range-card {
+  padding: 8px 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e6e2dc;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.wfh-date-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.wfh-date-field label {
+  color: #8994a3;
+  font-size: 10px;
+}
+
+.wfh-date-field input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #344054;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.wfh-date-field-right {
+  text-align: right;
+}
+
+.wfh-date-field-right input {
+  text-align: right;
+}
+
+.wfh-date-duration {
+  padding: 8px 10px;
+  border: 1px solid #e6e2dc;
+  border-radius: 5px;
+  background: #fff;
+  color: #667085;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* FORM GROUPS */
+
+.wfh-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wfh-form-group label {
+  color: #475467;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.wfh-form-group input,
+.wfh-form-group select,
+.wfh-form-group textarea {
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 10px;
+  border: 1px solid #d5dce5;
+  border-radius: 5px;
+  background: #fff;
+  color: #344054;
+  outline: none;
+  font-size: 11px;
+}
+
+.wfh-form-group textarea {
+  resize: vertical;
+}
+
+.wfh-form-group input:focus,
+.wfh-form-group select:focus,
+.wfh-form-group textarea:focus {
+  border-color: #2f80ed;
+  box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.1);
+}
+
+.wfh-form-group input::placeholder,
+.wfh-form-group textarea::placeholder {
+  color: #98a2b3;
+}
+
+/* FULL DAY / HALF DAY */
+
+.wfh-mode-switch {
+  width: fit-content;
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid #edf0f3;
+  border-radius: 6px;
+  background: #f8fafc;
+}
+
+.wfh-mode-switch button {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #7b8794;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.wfh-mode-switch button.active {
+  background: #fff;
+  color: #2f80ed;
+  box-shadow: 0 1px 4px rgba(31, 41, 55, 0.1);
+  font-weight: 600;
+}
+
+/* HOURLY CHECKBOX */
+
+.wfh-hourly-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+}
+
+.wfh-hourly-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #475467;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.wfh-info-icon {
+  display: inline-flex;
+  align-items: center;
+  color: #8994a3;
+}
+
+/* SHIFT TIMINGS */
+
+.wfh-shift-info {
+  margin-top: -5px;
+  color: #667085;
+  font-size: 11px;
+}
+
+.wfh-timing-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wfh-timing-label {
+  color: #475467;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.wfh-timing-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wfh-timing-row input[type="time"] {
+  width: 100px;
+  height: 36px;
+  padding: 7px;
+  border: 1px solid #d5dce5;
+  border-radius: 5px;
+  outline: none;
+  background: #fff;
+  color: #344054;
+  font-size: 11px;
+}
+
+.wfh-timing-row input[type="time"]:focus {
+  border-color: #2f80ed;
+}
+
+.wfh-time-separator {
+  color: #475467;
+  font-size: 11px;
+}
+
+.wfh-time-duration {
+  color: #667085;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* DURATION INFORMATION */
+
+.wfh-duration-info {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: -5px;
+  color: #667085;
+  font-size: 11px;
+}
+
+.wfh-duration-info svg {
+  color: #8994a3;
+}
+
+.wfh-duration-info strong {
+  color: #344054;
+}
+
+
+
+.wfh-date-field .wfh-field-error {
+  white-space: normal;
+}
+
+/* OFFCANVAS FOOTER ACTIONS */
+
+.wfh-offcanvas-footer-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+  .wfh-date-range-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wfh-date-field-right,
+  .wfh-date-field-right input {
+    text-align: left;
+  }
+
+  .wfh-timing-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .wfh-mode-switch button {
+    padding: 0 9px;
+    font-size: 10px;
+  }
+
+  .wfh-hourly-row {
+    gap: 6px;
+  }
+
+  .wfh-btn {
+    padding: 0 9px;
+    font-size: 10px;
+  }
+}

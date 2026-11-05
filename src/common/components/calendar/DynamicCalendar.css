@@ -1,0 +1,610 @@
+/* =========================================================
+   DYNAMIC CALENDAR
+========================================================= */
+
+.dynamic-calendar {
+  position: relative;
+  width: 100%;
+  z-index: auto;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #26364a;
+}
+
+.dynamic-calendar.is-open {
+  z-index: auto;
+}
+
+/* =========================================================
+   CALENDAR POPUP - STACKING AND POSITIONING
+========================================================= */
+
+.dc-popup {
+  position: absolute;
+  top: calc(100% + 1px);
+  bottom: auto;
+  left: 0;
+
+  width: 100%;
+  max-width: 250px;
+  min-width: fit-content;
+
+  z-index: 900;
+
+  background: #ffffff;
+  border: 1px solid #dbe5f0;
+  border-radius: 8px;
+
+  box-shadow:
+    0 12px 35px rgba(53, 88, 122, 0.12),
+    0 3px 10px rgba(53, 88, 122, 0.06);
+
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.dynamic-calendar.opens-up .dc-popup {
+  top: auto;
+  bottom: calc(100% - 20px);
+}
+
+@keyframes dc-popup-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dc-popup-inner {
+  padding: 8px 10px 10px;
+}
+
+/* =========================================================
+   CALENDAR HEADER
+========================================================= */
+
+.dc-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+  margin-bottom: 2px;
+}
+
+.dc-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: #344b67;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.dc-header-year {
+  color: #8294a8;
+  font-weight: 500;
+}
+
+.dc-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #637c98;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dc-nav-button:hover {
+  background: #edf4fb;
+  border-color: #d8e6f3;
+  color: #416d98;
+}
+
+.dc-nav-button svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* =========================================================
+   WEEKDAYS
+========================================================= */
+
+.dc-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 3px;
+}
+
+.dc-weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  color: #8a9caf;
+  font-size: 10px;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   CALENDAR DAYS
+========================================================= */
+
+.dc-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+.dc-day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #455b72;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.dc-day:hover:not(:disabled) {
+  background: #edf5fc;
+  color: #3e6f9f;
+}
+
+.dc-day:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.dc-day.dc-other-month {
+  color: #c7d1dc;
+}
+
+.dc-day.dc-today::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #8bb8dd;
+}
+
+.dc-day.dc-selected {
+  background: #8eb9dd;
+  color: #ffffff;
+  font-weight: 650;
+}
+
+.dc-day.dc-selected:hover {
+  background: #7eadd4;
+  color: #ffffff;
+}
+
+.dc-day.dc-selected::after {
+  display: none;
+}
+
+/* Disabled day */
+
+.dc-day:disabled {
+  color: #d6dee7;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+/* =========================================================
+   MONTH GRID
+========================================================= */
+
+.dc-month-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.dc-month-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 5px;
+  border: 1px solid #e2eaf2;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #536a82;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 550;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.dc-month-item:hover:not(:disabled) {
+  background: #eef5fb;
+  border-color: #c9ddec;
+  color: #47759f;
+  transform: translateY(-1px);
+}
+
+.dc-month-item.dc-selected {
+  background: #e6f0f9;
+  border-color: #91b8d8;
+  color: #416d96;
+}
+
+.dc-month-short {
+  margin-bottom: 3px;
+  color: #91a1b2;
+  font-size: 9px;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+.dc-month-item.dc-selected .dc-month-short {
+  color: #6f9cc2;
+}
+
+.dc-month-item:disabled {
+  background: #fafcfe;
+  border-color: #edf1f5;
+  color: #cbd4de;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   YEAR GRID
+========================================================= */
+
+.dc-year-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.dc-year-item {
+  min-height: 42px;
+  padding: 5px;
+  border: 1px solid #e2eaf2;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #536a82;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.dc-year-item:hover:not(:disabled) {
+  background: #eef5fb;
+  border-color: #c9ddec;
+  color: #47759f;
+  transform: translateY(-1px);
+}
+
+.dc-year-item.dc-selected {
+  background: #8eb9dd;
+  border-color: #8eb9dd;
+  color: #ffffff;
+}
+
+.dc-year-item:disabled {
+  background: #fafcfe;
+  border-color: #edf1f5;
+  color: #cbd4de;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.dc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 5px;
+  padding-top: 6px;
+  border-top: 1px solid #e8eef4;
+}
+
+.dc-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dc-today-button {
+  padding: 5px 8px;
+  border: 1px solid #d5e5f2;
+  border-radius: 7px;
+  background: #edf5fb;
+  color: #4c7ba4;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.dc-today-button:hover {
+  background: #e0edf7;
+  border-color: #c5dceb;
+  color: #3e6c94;
+}
+
+.dc-clear-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px 8px;
+  border: 1px solid #e4eaf0;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #8292a3;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.dc-clear-button:hover {
+  background: #f3f7fa;
+  border-color: #d6e0e9;
+  color: #526b83;
+}
+
+.dc-clear-button svg {
+  width: 12px;
+  height: 12px;
+}
+
+.dc-footer-value {
+  max-width: 125px;
+  overflow: hidden;
+  color: #8999aa;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   FOCUS STATES
+========================================================= */
+
+.dc-day:focus-visible,
+.dc-month-item:focus-visible,
+.dc-year-item:focus-visible,
+.dc-nav-button:focus-visible,
+.dc-today-button:focus-visible,
+.dc-clear-button:focus-visible {
+  outline: 2px solid #8eb9dd;
+  outline-offset: 2px;
+}
+
+/* Disabled buttons */
+
+.dc-nav-button:disabled,
+.dc-today-button:disabled,
+.dc-clear-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   INPUT AND CALENDAR TRIGGER
+========================================================= */
+
+
+/* Input and calendar trigger */
+
+.dc-input-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Reserve space for the calendar icon */
+.dc-input-container .hrms-form-control {
+  padding-right: 45px;
+}
+
+/* Position the icon relative to the input, not the label/error */
+.dc-calendar-trigger {
+  position: absolute;
+  right: 7px;
+  top: 40px;
+  transform: translateY(-50%);
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #828282;
+  cursor: pointer;
+  z-index: 10;
+}
+.dc-input-container.no-label .dc-calendar-trigger {
+  top: 17.5px;
+}
+.dc-calendar-trigger svg {
+  width: 16px;
+  height: 16px;
+}
+
+.dc-calendar-trigger:hover {
+  color: #5b8def;
+}
+
+.dc-calendar-trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+
+/* =========================================================
+   HEADER MONTH AND YEAR BUTTONS
+========================================================= */
+
+.dc-header-month,
+.dc-header-year {
+  border: 0;
+  background: transparent;
+  padding: 3px 4px;
+  margin: 0;
+  font: inherit;
+  color: #334e68;
+  cursor: pointer;
+  border-radius: 5px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.dc-header-month {
+  font-weight: 700;
+}
+
+.dc-header-year {
+  font-weight: 500;
+}
+
+.dc-header-month:hover,
+.dc-header-year:hover {
+  background: #eef5fb;
+  color: #416fc4;
+}
+
+.dc-month-view-year {
+  font-weight: 700;
+}
+
+/* Read-only date input */
+
+.dynamic-calendar .hrms-form-control[readonly] {
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* =========================================================
+   STACKING FIX
+========================================================= */
+
+.dynamic-calendar,
+.dynamic-calendar.is-open {
+  z-index: auto !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 480px) {
+  .dc-popup {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .dc-popup-inner {
+    padding: 8px;
+  }
+
+  .dc-month-grid,
+  .dc-year-grid {
+    gap: 5px;
+  }
+
+  .dc-month-item {
+    min-height: 38px;
+    font-size: 10px;
+  }
+
+  .dc-year-item {
+    min-height: 38px;
+    font-size: 10px;
+  }
+
+  .dc-day {
+    font-size: 11px;
+  }
+
+  .dc-weekday {
+    height: 23px;
+  }
+
+  .dc-footer {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .dc-footer-value {
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-popup {
+    animation: none;
+  }
+
+  .dc-day,
+  .dc-month-item,
+  .dc-year-item,
+  .dc-nav-button,
+  .dc-today-button,
+  .dc-clear-button {
+    transition: none;
+  }
+}
